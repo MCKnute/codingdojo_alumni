@@ -1,0 +1,14 @@
+{
+  "name": "codingdojo_alumni",
+  "version": "0.5.0",
+  "description": "CodingDojo Web App",
+  "main": "server.js",
+  "author": "Mike Bogosian, Peter Kang, Mollie Knute, Rich Whybrew",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "bootstrap": "^3.3.6",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.13"
+  }
+}
