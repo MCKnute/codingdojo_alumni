@@ -43,6 +43,26 @@ return {
                 }
          }
         })
-    }
+    },
+    update: function(req, res){ // have not specified what we're going to edit for this controller yet.
+        User.update({_id: req.body._id}, {$inc: {quant: - req.body.quantity}}, function(err, results){
+              console.log(results, "This is after the UPDATE")
+              if(err){
+                console.log(err, "this is an error");
+
+              } else{
+                  console.log(results);
+                  User.create(req.body, function(err, user) {
+              // console.log(order, "This is coming from my database")
+                  if(err) {
+                  console.log(err);
+                  res.json({errors: err.errors});
+                  } else{
+                  res.json(true);
+                  }
+                })
+              }
+              })
+        }
  }
 })();
