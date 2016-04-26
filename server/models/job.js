@@ -9,7 +9,7 @@ var JobSchema = new mongoose.Schema({
   location: String,
   primaryStack: String,
   _user: {type: Schema.ObjectId, ref:'users'},
-  _posts: [{type: Schema.ObjectId, ref:'posts'}],
+  _post: [{type: Schema.ObjectId, ref:'posts'}],
   _comments: [{type: Schema.ObjectId, ref:'comments'}],
   createdAt: { type: Date, default: Date.now }
 });
