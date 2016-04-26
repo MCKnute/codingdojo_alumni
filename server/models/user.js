@@ -16,7 +16,7 @@ var UserSchema = new mongoose.Schema({
   },
   currentJob: String,
   status: String,
-  _posts: [{type: Schema.ObjectId, ref:'Post'}],
+  _post: [{type: Schema.ObjectId, ref:'Post'}],
   _comments: [{type: Schema.ObjectId, ref:'Comment'}],
   _messages: [{type: Schema.ObjectId, ref:'Message'}],
   _jobs: [{type: Schema.ObjectId, ref:'Job'}],

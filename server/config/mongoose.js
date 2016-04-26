@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 // require file-system so that we can load, read, require all of the model files
 var fs = require('fs');
+var config = require('../config/database');
 // connect to the database
 mongoose.connect(config.database);
 // specify the path to all of the models
