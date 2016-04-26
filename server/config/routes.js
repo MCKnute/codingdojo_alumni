@@ -1,8 +1,15 @@
-//var ninjas = require('../controllers/ninjas.js');
+var event = require('./../controllers/events.js');
+var job = require('./../controllers/jobs.js')
+var post = require('./../controllers/posts.js')
+var user = require('./../controllers/users.js')
 
 module.exports = function(app) {
+	app.get('/dash', function(req, res) {
+	  user.find(req, res);
+	});
+
 	app.get('/', function(req, res) {
-	  //ninjas.showAll(req, res);
+	  user.find(req, res);
 	});
 
 	app.post('/ninjas', function(req, res){
