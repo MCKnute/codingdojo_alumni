@@ -2,40 +2,27 @@ var events = require('./../controllers/events.js');
 var job = require('./../controllers/jobs.js')
 var post = require('./../controllers/posts.js')
 var user = require('./../controllers/users.js')
-var gitkitWid = require('./../controllers/gitkitWid.js');
+// var gitkitWid = require('./../controllers/gitkitWid.js');
 
 module.exports = function(app, passport) {
 	app.get('/dash', function(req, res) {
-
 	  user.find(req, res);
-	  gitkitWid.renderIndexPage(req,res);
-	});
-
-	app.get('/dash', function(req, res) {
-	  user.find(req, res);
+	  // gitkitWid.renderIndexPage(req,res);
 	});
 
 //	Gitkit
 	// widget page hosting Gitkit javascript
-	app.get('/gitkit', function(req,res){
-		gitkitWid.renderGitkitWidgetPage(req,res);
-	});
-	app.post('/gitkit', function(req,res){
-		gitkitWid.renderGitkitWidgetPage(req,res);
-	});
-	// Ajax endpoint to send email for password-recovery and email change event
-	app.post('/sendemail', function(res, loginInfo){
-		gitkitWid.renderSendEmailPage(res, loginInfo);
-	});
+	// app.get('/gitkit', function(req,res){
+	// 	gitkitWid.renderGitkitWidgetPage(req,res);
+	// });
+	// app.post('/gitkit', function(req,res){
+	// 	gitkitWid.renderGitkitWidgetPage(req,res);
+	// });
+	// // Ajax endpoint to send email for password-recovery and email change event
+	// app.post('/sendemail', function(res, loginInfo){
+	// 	gitkitWid.renderSendEmailPage(res, loginInfo);
+	// });
 //	END Gitkit
-
-	// app.get('/profile', function(req, res) {
-	//   user.findID(req, res);
-	// });
-
-	// app.get('/profile', function(req, res) {
-	//   user.update(req, res);
-	// });
 
 	app.get('/event', function(req, res) {
 	  events.findID(req, res);
@@ -96,6 +83,26 @@ module.exports = function(app, passport) {
 		res.redirect('/');
 	});
 	
+	// facebook routes
+    // twitter routes
+
+    // =====================================
+    // GOOGLE ROUTES =======================
+    // =====================================
+    // send to google to do the authentication
+    // profile gets us their basic information including their name
+    // email gets their emails
+    app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+
+    // the callback after google has authenticated the user
+    app.get('/auth/google/callback',
+        passport.authenticate('google', {
+            successRedirect : '/profile',
+            failureRedirect : '/'
+        }));
+    // =====================================
+    // END GOOGLE =======================
+    // =====================================
 };
 
 function isLoggedIn(req, res, next) {

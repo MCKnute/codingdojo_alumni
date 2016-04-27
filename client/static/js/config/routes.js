@@ -3,7 +3,11 @@ var alumniApp = angular.module('alumniApp', ['ngRoute']);
 alumniApp.config(function($routeProvider){
 	$routeProvider
 		.when('/',{
-			templateUrl: 'static/partials/login.html',
+			templateUrl: 'views/login.ejs'
+			// controller: "accountController"
+		});
+		.when('/login',{
+			templateUrl: 'views/login.ejs',
 			controller: "accountController"
 		});
 		.when('/dash', {

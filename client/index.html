@@ -24,18 +24,18 @@
   </script>
 
 <!-- ________ GOOLE IDENTITY TOOLKIT API________ -->
-  <script type="text/javascript" src="//www.gstatic.com/authtoolkit/js/gitkit.js"></script>
-  <link type=text/css rel=stylesheet href="//www.gstatic.com/authtoolkit/css/gitkit.css" />
+ <!--  <script type="text/javascript" src="//www.gstatic.com/authtoolkit/js/gitkit.js"></script>
+  <link type=text/css rel=stylesheet href="//www.gstatic.com/authtoolkit/css/gitkit.css" /> -->
 
   <script type=text/javascript>
 
-    window.google.identitytoolkit.signInButton(
-        '#signIn',
-        {
-          widgetUrl: "/gitkit",
-          signOutUrl: "/"
-        }
-    );
+    // window.google.identitytoolkit.signInButton(
+    //     '#signIn',
+    //     {
+    //       widgetUrl: "/gitkit",
+    //       signOutUrl: "/"
+    //     }
+    // );
   </script>
 <!-- ________ END GOOLE IDENTITY TOOLKIT API________ -->
 
@@ -54,7 +54,7 @@
           <a class="navbar-brand" href="#">CodingDojo On Tap</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <div id="signIn" class="navbar-form navbar-right"></div>
+          <!-- <div id="signIn" class="navbar-form navbar-right"></div> -->
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
@@ -63,15 +63,17 @@
     <a href='/login'>Login</a><br>
     <a href='/signup'>Signup</a><br>
 
-<!-- google API ID TOOLKIT info -->
-    <div>
+<!-- google Authentication-->
+
+    <!-- info -->
+    <!--  <div>
       <p>%%loginInfo%%</p>
     </div>
 
     <div>
       <p>%%postBody%%</p>
-    </div>
-<!-- END google API ID TOOLKIT info -->
+    </div> -->
+<!-- END google -->
   <div ng-view=""></div>
     this is the ng-view div. Put stuff here!
 

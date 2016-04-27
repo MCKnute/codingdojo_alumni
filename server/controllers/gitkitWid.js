@@ -41,13 +41,13 @@ module.exports = (function() {
 			if (req.cookies.gtoken) {
 				gitkitClient.verifyGitkitToken(req.cookies.gtoken, function (err, resp) {
 				  	if (err) {
-				    	printLoginInfo(res, 'Invalid token: ' + err);
+				    	this.printLoginInfo(res, 'Invalid token: ' + err);
 				  	} else {
-				    	printLoginInfo(res, 'Welcome back! Login token is: ' + JSON.stringify(resp));
+				    	this.printLoginInfo(res, 'Welcome back! Login token is: ' + JSON.stringify(resp));
 				  	}
 				});
 			} else {
-				printLoginInfo(res, 'You are not logged in yet.');
+				this.printLoginInfo(res, 'You are not logged in yet.');
 			}
 	    },
 

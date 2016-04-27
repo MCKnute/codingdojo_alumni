@@ -11,6 +11,8 @@ var jwt = require('jwt-simple');
 var mongoose = require('mongoose');
 var flash = require('connect-flash');
 var session = require('express-session');
+var googleAPI = require('googleapis');
+var fs = require('fs');
 var port = 8000;
 
 // mongoose.connect(config.url);
@@ -39,12 +41,9 @@ require('./server/config/routes.js')(app, passport);
 //require('bootstrap');
 
 //-------------- Google API --------------//
-var googleAPI = require('googleapis');
-var cookieParser = require('cookie-parser');
-var gitKit = require('gitkitclient');
-var fs = require('fs');
-var GitkitClient = require('gitkitclient');
-var gitkitClient = new GitkitClient(JSON.parse(fs.readFileSync('./gitkit-server-config.json')));
+// var gitKit = require('gitkitclient');
+// var GitkitClient = require('gitkitclient');
+// var gitkitClient = new GitkitClient(JSON.parse(fs.readFileSync('./gitkit-server-config.json')));
 
 
 // index page
