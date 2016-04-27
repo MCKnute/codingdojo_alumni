@@ -8,10 +8,10 @@ app.use(bodyParser.json());
 
 require('./server/config/mongoose.js');
 
+require('./server/config/routes.js')(app);
 //Look at documentation at http://getbootstrap.com/getting-started/#download
 //require('bootstrap');
 
-require('./server/config/routes.js')(app);
 
 
 var port = 8000;
