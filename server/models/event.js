@@ -3,13 +3,13 @@ var Schema = mongoose.Schema;
 
 var EventSchema = new mongoose.Schema({
   eventName: String,
-  location: {},
+  location: String,
   description: String,
   pictureUrl: String,
   rsvp: [{}],
   inviteList: {},
   _user: {type: Schema.ObjectId, ref:'User'},
-  _posts: [{type: Schema.ObjectId, ref:'Post'}],
+  posts: [{type: Schema.ObjectId, ref:'Post'}],
   _comments: [{type: Schema.ObjectId, ref:'Comment'}],
   createdAt: { type: Date, default: Date.now }
 });
