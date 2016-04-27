@@ -1,0 +1,26 @@
+<div ng-include="'partials/navbar/landing-nav.html'"></div>
+
+<div class="container">
+  <div class="row">
+
+	<h1 style="padding-top: 2em" class="text-center">Login via Username</h1>
+  	<h4>Please enter a username to continue</h4>
+
+  	<form ng-submit="login(user)">
+  	<label> First Name
+    	<input type="text" ng-model="user.firstName">
+    </label>
+    <label> Last Name
+    	<input type="text" ng-model="user.lastName">
+    </label>
+    	<button class="btn btn-lg btn-default">GO!</button>
+  	</form>
+
+  </div>
+</div>
+
+   <hr />
+
+<footer>
+  <p class="text-center">&copy; Mike Bogosian, Pete Kang, Mollie Knute, and Rich Whybrew</p>
+</footer>

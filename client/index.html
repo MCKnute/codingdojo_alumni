@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <title>CodingDojo Alumni</title>
@@ -7,43 +8,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/jasny-bootstrap.css">
   <link rel="stylesheet" type="text/css" href="/static/css/custom.css">
 
   <meta name="author" content="Mike Bogosian, Peter Kang, Mollie Knute, Rich Whybrew">
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.min.js"></script>
-  <script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type='text/javascript'>
+    var alumniApp = angular.module('alumniApp', ['ngRoute']);
 
-  	var alumniApp = angular.module('alumniApp', ['ngRoute']);
-
-////CONTROLLERS /////////
     alumniApp.config(function ($routeProvider) {
       $routeProvider
-        .when('/', {
-            templateUrl: "static/partials/loginTest.html",
+        .when('/',{
+            templateUrl: '../partials/landing.html'
+        })
+        .when('/login', {
+            templateUrl: "../partials/loginTest.html",
             controller: "loginController"
          })
-
-         .when('/new-job', {
-            templateUrl: "static/partials/addjobtest.html",
-            controller: "jobController"
-         })
-         .when('/new-event', {
-            templateUrl: "static/partials/addeventtest.html",
-            controller: "eventController"
-         })
-         .when('/userUpdate', {
-            templateUrl: "static/partials/userupdatetest.html",
-            controller: "updateController"
-         })
-         .when('/users', {
-            templateUrl: "static/partials/userprofilestest.html",
-            controller: "profileController"
-         })
-
+        .when('/dashboard',{
+            templateUrl: '../partials/dashboard.html'
+        })
+        .when('/dashboard/my-profile',{
+            templateUrl: '../partials/my_profile.html'
+        })
+        .when('/dashboard/my-profile/edit', {
+           templateUrl: "../partials/userupdatetest.html",
+           controller: "updateController"
+        })
+        .when('/dashboard/messages',{
+            templateUrl: '../partials/messages.html'
+        })
+        .when('/dashboard/alumni',{
+            templateUrl: '../partials/alumni.html'
+        })
+        .when('/dashboard/users', {
+           templateUrl: "../partials/userprofilestest.html",
+           controller: "profileController"
+        })
+        .when('/dashboard/jobs',{
+            templateUrl: '../partials/jobs.html'
+        })
+        .when('/dashboard/jobs/new', {
+           templateUrl: "../partials/addjobtest.html",
+           controller: "jobController"
+        })
+        .when('/dashboard/events',{
+            templateUrl: '../partials/events.html'
+        })
+        .when('/dashboard/events/new', {
+           templateUrl: "../partials/addeventtest.html",
+           controller: "eventController"
+        })
+        .when('/dashboard/about-us',{
+            templateUrl: '../partials/about_us.html'
+        })
+        .otherwise({
+          redirectTo: '/'
+        });         
     });
-    //  build the controllers
+
+////////  build the controllers
     alumniApp.controller('jobController', jobController )
     alumniApp.controller('eventController', eventController )
     alumniApp.controller('updateController', updateController )
@@ -511,17 +538,12 @@
     this is the ng-view div. Put stuff here!
   </div>
 
-   <hr>
-
-      <footer>
-        <p class="text-center">&copy; Mike Bogosian, Pete Kang, Mollie Knute, and Rich Whybrew</p>
-      </footer>
-    </div> <!-- /container -->
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script>window.jQuery || document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"><\/script>')</script>
     <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/jasny-bootstrap.min.js"></script>
+    <script src="/static/js/custom.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/static/js/ie10-viewport-bug-workaround.js"></script>
 </body>
