@@ -6,7 +6,7 @@
   "author": "Mike Bogosian, Peter Kang, Mollie Knute, Rich Whybrew",
   "license": "MIT",
   "dependencies": {
-    "bcrypt": "^0.8.6",
+    
     "body-parser": "latest",
     "bootstrap": "latest",
     "cookie-parser": "latest",
