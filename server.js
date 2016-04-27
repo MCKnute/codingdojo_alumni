@@ -16,7 +16,7 @@ var port = 8000;
 // mongoose.connect(config.url);
 require('./server/config/passport')(passport);
 
-app.use(express.static(path.join(__dirname, '/client')));
+app.use(express.static(path.join(__dirname, './client')));
 app.use(bodyParser());
 app.use(cookieParser());
 
