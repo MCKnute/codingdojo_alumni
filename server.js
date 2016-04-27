@@ -120,58 +120,58 @@ var gitkitClient = new GitkitClient(JSON.parse(fs.readFileSync('./gitkit-server-
 
 
 // index page
-app.get('/', renderIndexPage);
+// app.get('/', renderIndexPage);
 
-// widget page hosting Gitkit javascript
-app.get('/gitkit', renderGitkitWidgetPage);
-app.post('/gitkit', renderGitkitWidgetPage);
+// // widget page hosting Gitkit javascript
+// app.get('/gitkit', renderGitkitWidgetPage);
+// app.post('/gitkit', renderGitkitWidgetPage);
 
-// Ajax endpoint to send email for password-recovery and email change event
-app.post('/sendemail', renderSendEmailPage);
+// // Ajax endpoint to send email for password-recovery and email change event
+// app.post('/sendemail', renderSendEmailPage);
 
-function renderGitkitWidgetPage(req, res) {
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  var html = new Buffer(fs.readFileSync('./client/static/partials/gitkit-widget.html')).toString();
-  html = html.replace('%%postBody%%', encodeURIComponent(req.body || ''));
-  res.end(html);
-}
+// function renderGitkitWidgetPage(req, res) {
+//   res.writeHead(200, {'Content-Type': 'text/html'});
+//   var html = new Buffer(fs.readFileSync('./client/static/partials/gitkit-widget.html')).toString();
+//   html = html.replace('%%postBody%%', encodeURIComponent(req.body || ''));
+//   res.end(html);
+// }
 
-function renderIndexPage(req, res) {
-  if (req.cookies.gtoken) {
-    gitkitClient.verifyGitkitToken(req.cookies.gtoken, function (err, resp) {
-      if (err) {
-        printLoginInfo(res, 'Invalid token: ' + err);
-      } else {
-        printLoginInfo(res, 'Welcome back! Login token is: ' + JSON.stringify(resp));
-      }
-    });
-  } else {
-    printLoginInfo(res, 'You are not logged in yet.');
-  }
-}
+// function renderIndexPage(req, res) {
+//   if (req.cookies.gtoken) {
+//     gitkitClient.verifyGitkitToken(req.cookies.gtoken, function (err, resp) {
+//       if (err) {
+//         printLoginInfo(res, 'Invalid token: ' + err);
+//       } else {
+//         printLoginInfo(res, 'Welcome back! Login token is: ' + JSON.stringify(resp));
+//       }
+//     });
+//   } else {
+//     printLoginInfo(res, 'You are not logged in yet.');
+//   }
+// }
 
-function renderSendEmailPage(req, res) {
-  app.disable('etag');
-  gitkitClient.getOobResult(req.body, req.ip, req.cookies.gtoken, function(err, resp) {
-    if (err) {
-      console.log('Error: ' + JSON.stringify(err));
-    } else {
-      // Add code here to send email
-      console.log('Send email: ' + JSON.stringify(resp));
-    }
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/html');
-    res.end(resp.responseBody);
-  })
-}
+// function renderSendEmailPage(req, res) {
+//   app.disable('etag');
+//   gitkitClient.getOobResult(req.body, req.ip, req.cookies.gtoken, function(err, resp) {
+//     if (err) {
+//       console.log('Error: ' + JSON.stringify(err));
+//     } else {
+//       // Add code here to send email
+//       console.log('Send email: ' + JSON.stringify(resp));
+//     }
+//     res.statusCode = 200;
+//     res.setHeader('Content-Type', 'text/html');
+//     res.end(resp.responseBody);
+//   })
+// }
 
-function printLoginInfo(res, loginInfo) {
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  var html = new Buffer(fs.readFileSync('/client/index.html'))
-      .toString()
-      .replace('%%loginInfo%%', loginInfo);
-  res.end(html);
-}
+// function printLoginInfo(res, loginInfo) {
+//   res.writeHead(200, {'Content-Type': 'text/html'});
+//   var html = new Buffer(fs.readFileSync('/client/index.html'))
+//       .toString()
+//       .replace('%%loginInfo%%', loginInfo);
+//   res.end(html);
+// }
 //-------------- END Google API --------------//
  
 // connect the api routes under /api/*
