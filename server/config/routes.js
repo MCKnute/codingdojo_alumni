@@ -3,9 +3,12 @@ var job = require('./../controllers/jobs.js')
 var post = require('./../controllers/posts.js')
 var user = require('./../controllers/users.js')
 
+// comment
+module.exports = function(app, passport) {
+	app.get('/dash', function(req, res) {
+	  user.find(req, res);
+	});
 
-
-module.exports = function(app) {
 	app.get('/', function(req, res) {
 	user.find(req, res);
 	});
@@ -45,11 +48,9 @@ module.exports = function(app) {
 	// });
 
 	app.get('/event', function(req, res) {
-<<<<<<< HEAD
+
 	  events.findID(req, res);
-=======
-	  event.find(req, res);
->>>>>>> mikeBranch
+
 	});
 
 	app.post('/event', function(req, res){

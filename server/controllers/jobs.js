@@ -21,7 +21,6 @@ return {
             console.log(err);
         }   
         else{
-<<<<<<< HEAD
 
             if(user){
             res.json(user);
@@ -33,10 +32,9 @@ return {
                     res.json(newUser);
                 })
                 }
-=======
           // console.log(results);
             res.json(results);
->>>>>>> mikeBranch
+
          }
         })
      },
