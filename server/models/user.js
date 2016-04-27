@@ -1,55 +1,60 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-// var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt-nodejs');
 
 var UserSchema = new mongoose.Schema({
   firstName: String,
   lastName: String,
-  email: {
-  	type: String,
-  	unique: true,
-  	required: true
-  },
-  password: {
-  	type: String,
-  	required: true
-  },
+   email: String,
+  // 	type: String,
+  // 	unique: true,
+  // 	required: true
+  // },
+  password: String,
+  // 	type: String,
+  // 	required: true
+  // },
   currentJob: String,
+  primaryLocation: String,
+  gradDate: {},
+  summary: String,
+  beltComplete: {},
   status: String,
-  _post: [{type: Schema.ObjectId, ref:'Post'}],
+
+  posts: [{type: Schema.ObjectId, ref:'Post'}],
+
   _comments: [{type: Schema.ObjectId, ref:'Comment'}],
   _messages: [{type: Schema.ObjectId, ref:'Message'}],
   _jobs: [{type: Schema.ObjectId, ref:'Job'}],
   createdAt: { type: Date, default: Date.now }
 });
 
-UserSchema.pre('save', function(next) {
-	var user = this;
-	if(this.isModified('password') || this.isNew) {
-		bcrypt.genSalt(10, function (err, salt) {
-			if(err) {
-				return next(err);
-			}
-			bcrypt.hash(user.password, salt, function(err, hash) {
-			if(err) {
-				return next(err);
-			}
-			user.password = hash;
-			next();
-		});
-	});
-	} else {
-		return next();
-	}
-});
+// UserSchema.pre('save', function(next) {
+// 	var user = this;
+// 	if(this.isModified('password') || this.isNew) {
+// 		bcrypt.genSalt(10, function (err, salt) {
+// 			if(err) {
+// 				return next(err);
+// 			}
+// 			bcrypt.hash(user.password, salt, function(err, hash) {
+// 			if(err) {
+// 				return next(err);
+// 			}
+// 			user.password = hash;
+// 			next();
+// 		});
+// 	});
+// 	} else {
+// 		return next();
+// 	}
+// });
 
-UserSchema.methods.comparePassword = function(passw, cb) {
-	bcrypt.compare(passw, this.password, function(err, isMatch) {
-		if(err) {
-			return cb(err);
-		}
-		cb(null, isMatch);
-	});
+UserSchema.methods.generateHash = function(password) {
+	return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
+
+UserSchema.methods.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.password);
 };
 
 module.exports = mongoose.model('User', UserSchema);
