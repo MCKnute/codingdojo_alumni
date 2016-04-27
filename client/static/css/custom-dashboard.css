@@ -1,0 +1,16 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+
+.navbar-inverse-noborder {
+	border-color: #222;
+}
+
+.jumbotron-black {
+	background-color: #222;
+	color: white;
+}
+
+@media (min-width: 992px) {
+  .dashboard-div {
+    padding: 0 0 0 300px;
+  }
+}
