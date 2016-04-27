@@ -15,8 +15,14 @@ var UserSchema = new mongoose.Schema({
   // 	required: true
   // },
   currentJob: String,
+  primaryLocation: String,
+  gradDate: {},
+  summary: String,
+  beltComplete: {},
   status: String,
-  _post: [{type: Schema.ObjectId, ref:'Post'}],
+
+  posts: [{type: Schema.ObjectId, ref:'Post'}],
+
   _comments: [{type: Schema.ObjectId, ref:'Comment'}],
   _messages: [{type: Schema.ObjectId, ref:'Message'}],
   _jobs: [{type: Schema.ObjectId, ref:'Job'}],
