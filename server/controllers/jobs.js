@@ -21,8 +21,20 @@ return {
             console.log(err);
         }   
         else{
+
+            if(user){
+            res.json(user);
+            } 
+                else{
+                //otherwise make a user
+                Job.create({name: req.body.name}, function(err, newUser){
+                    if(err) { console.log(err); }
+                    res.json(newUser);
+                })
+                }
           // console.log(results);
             res.json(results);
+
          }
         })
      },

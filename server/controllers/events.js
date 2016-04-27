@@ -21,6 +21,7 @@ return {
     //     }   
     //     else{
 
+
     //         if(user){
     //         res.json(user);
     //         } 
@@ -34,6 +35,22 @@ return {
     //      }
     //     })
     // },
+
+
+    //         if(user){
+    //         res.json(user);
+    //         } 
+    //             else{
+    //             //otherwise make a user
+    //             Event.create({name: req.body.name}, function(err, newUser){
+    //                 if(err) { console.log(err); }
+    //                 res.json(newUser);
+    //             })
+    //             }
+    //      }
+    //     })
+    // },
+
          create: function(req,res){
          Event.create(req.body, function(err, topic){
             if(err){

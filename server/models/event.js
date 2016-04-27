@@ -10,6 +10,7 @@ var EventSchema = new mongoose.Schema({
   inviteList: {},
   _user: {type: Schema.ObjectId, ref:'User'},
   posts: [{type: Schema.ObjectId, ref:'Post'}],
+
   _comments: [{type: Schema.ObjectId, ref:'Comment'}],
   createdAt: { type: Date, default: Date.now }
 });
