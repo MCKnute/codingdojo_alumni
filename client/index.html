@@ -13,10 +13,23 @@
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.min.js"></script>
-  <script>
+  <script type='text/javascript'>
+    var alumniApp = angular.module('alumniApp', ['ngRoute']);
 
-  	var alumniApp = angular.module('alumniApp', []);
+    alumniApp.config(function ($routeProvider) {
+      $routeProvider
+        .when('/',{
+            templateUrl: '../partials/landing.html'
+        })
+        .when('/dashboard',{
+            templateUrl: '../partials/dashboard.html'
+        })
+        .otherwise({
+          redirectTo: '/'
+        });
+    });
 
+  	
 ////CONTROLLERS /////////
 
   alumniApp.controller('NinjasController', function($scope) {
