@@ -28,6 +28,15 @@ module.exports = (function() {
 	         }
 	        })
 	    },
+
+		printLoginInfo: function(res, loginInfo) {
+		  res.writeHead(200, {'Content-Type': 'text/html'});
+		  var html = new Buffer(fs.readFileSync('/client/index.html'))
+		      .toString()
+		      .replace('%%loginInfo%%', loginInfo);
+		  res.end(html);
+		},
+		
 	    renderIndexPage: function(req,res){
 			if (req.cookies.gtoken) {
 				gitkitClient.verifyGitkitToken(req.cookies.gtoken, function (err, resp) {
@@ -62,14 +71,6 @@ module.exports = (function() {
 		    res.setHeader('Content-Type', 'text/html');
 		    res.end(resp.responseBody);
 		  });
-		},
-
-		printLoginInfo: function(res, loginInfo) {
-		  res.writeHead(200, {'Content-Type': 'text/html'});
-		  var html = new Buffer(fs.readFileSync('/client/index.html'))
-		      .toString()
-		      .replace('%%loginInfo%%', loginInfo);
-		  res.end(html);
 		}
 	}
 })();
