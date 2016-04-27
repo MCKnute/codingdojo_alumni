@@ -29,6 +29,12 @@ body {
   float: left;
   margin-left: 15px;
 }
+.navmenu {
+  padding-top: 50px;
+}
+.navmenu-brand {
+  color: white;
+}
 
 .container {
   max-width: 100%;
@@ -43,5 +49,11 @@ body {
 @media (min-width: 992px) {
   .dashboard-div {
     padding: 0 0 0 300px;
+  }
+  .navmenu {
+    padding-top: 0;
+  }
+  .navbar {
+    display: none !important; /* IE8 fix */
   }
 }

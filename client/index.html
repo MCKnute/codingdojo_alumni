@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <title>CodingDojo Alumni</title>
@@ -14,6 +15,7 @@
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script type='text/javascript'>
     var alumniApp = angular.module('alumniApp', ['ngRoute']);
 
@@ -24,6 +26,9 @@
         })
         .when('/dashboard',{
             templateUrl: '../partials/dashboard.html'
+        })
+        .when('/dashboard/my-profile',{
+            templateUrl: '../partials/my_profile.html'
         })
         .when('/dashboard/messages',{
             templateUrl: '../partials/messages.html'
@@ -62,9 +67,10 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script>window.jQuery || document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"><\/script>')</script>
     <script src="/static/js/bootstrap.min.js"></script>
     <script src="/static/js/jasny-bootstrap.min.js"></script>
+    <script src="/static/js/custom.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/static/js/ie10-viewport-bug-workaround.js"></script>
 </body>
