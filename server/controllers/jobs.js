@@ -24,7 +24,7 @@ return {
             if(user){
             res.json(user);
             } 
-                else{:
+                else{
                 //otherwise make a user
                 Job.create({name: req.body.name}, function(err, newUser){
                     if(err) { console.log(err); }

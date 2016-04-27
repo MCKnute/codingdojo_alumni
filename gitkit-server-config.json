@@ -1,0 +1,8 @@
+{
+  "clientId": "991659841451-u62fsocnuat17slkf29nc113v1s1cv9b.apps.googleusercontent.com",
+  "projectId": "mean-doj-social",
+  "serviceAccountEmail": "",
+  "serviceAccountPrivateKeyFile": "/Users/noone/desktop/macbook/github/mean_stack/mean_project/project/codingdojo_alumni/cdOnTap.pem",
+  "widgetUrl": "http://localhost:8000/gitkit",
+  "cookieName": "gtoken"
+}
