@@ -99,6 +99,7 @@ function uploadSampleAccounts() {
 
   function createNewUsers(hashKey) {
     var crypto = require('crypto');
+// examples
     var user1 = {
       localId: '1234nodejs',
       email: '1234node@example.com',
@@ -112,6 +113,7 @@ function uploadSampleAccounts() {
       passwordHash: crypto.createHmac('SHA1', hashKey).update('2222' + 'salt-2').digest()
     };
     return [user1, user2];
+// END example
   }
 }
 

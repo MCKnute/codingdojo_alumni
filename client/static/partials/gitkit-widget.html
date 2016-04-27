@@ -1,34 +1,34 @@
 <div>
 
-<script type="text/javascript" src="//www.gstatic.com/authtoolkit/js/gitkit.js"></script>
-<link type="text/css" rel="stylesheet" href="//www.gstatic.com/authtoolkit/css/gitkit.css" />
+  <script type="text/javascript" src="//www.gstatic.com/authtoolkit/js/gitkit.js"></script>
+  <link type="text/css" rel="stylesheet" href="//www.gstatic.com/authtoolkit/css/gitkit.css" />
 
-  <!-- <script src="/static/js/controllers/gitkitsController.js"></script> -->
+    <!-- <script src="/static/js/controllers/gitkitsController.js"></script> -->
 
-<script type="text/javascript">
-  var config = {
-    // change gitkit to whatever page needs it (i.e.- index)
-    widgetUrl: "http://localhost:8000/gitkit",
-    signInSuccessUrl: "/dash",
-    signOutUrl: "/",
-    oobActionUrl: "/sendemail",
-    apiKey: "AIzaSyDQN88KymLY2PgTZ-6hk221KNJpafCQaQs",
-    siteName: "CodingDojo On Tap",
-    signInOptions: ["password","google","facebook"],
-    accountChooserEnabled: true,
-    displayMode: "providerFirst"
-  };
+  <script type="text/javascript">
+    var config = {
+      // change gitkit to whatever page needs it (i.e.- index)
+      widgetUrl: "http://localhost:8000/gitkit",
+      signInSuccessUrl: "/dash",
+      signOutUrl: "/",
+      oobActionUrl: "/sendemail",
+      apiKey: "AIzaSyDQN88KymLY2PgTZ-6hk221KNJpafCQaQs",
+      siteName: "CodingDojo On Tap",
+      signInOptions: ["password","google","facebook"],
+      accountChooserEnabled: true,
+      displayMode: "providerFirst"
+    };
 
-  // The HTTP POST body should be escaped by the server to prevent XSS
-  window.google.identitytoolkit.start(
-    '#gitkitWidgetDiv', // accepts any CSS selector
-    config,
-    decodeURIComponent('%%postBody%%')
-  );
-</script>
-<!-- Include the sign in page widget with the matching 'gitkitWidgetDiv' id -->
+    // The HTTP POST body should be escaped by the server to prevent XSS
+    window.google.identitytoolkit.start(
+      '#gitkitWidgetDiv', // accepts any CSS selector
+      config,
+      decodeURIComponent('%%postBody%%')
+    );
+  </script>
+  <!-- Include the sign in page widget with the matching 'gitkitWidgetDiv' id -->
 
-<div id="gitkitWidgetDiv"></div>
-<!-- End identity toolkit widget -->
+  <div id="gitkitWidgetDiv"></div>
+  <!-- End identity toolkit widget -->
 
 </div>

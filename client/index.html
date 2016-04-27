@@ -28,6 +28,7 @@
   <link type=text/css rel=stylesheet href="//www.gstatic.com/authtoolkit/css/gitkit.css" />
 
   <script type=text/javascript>
+
     window.google.identitytoolkit.signInButton(
         '#signIn',
         {
@@ -60,13 +61,17 @@
 
   <div class="container">
 
-<!-- GOOGLE API ID TOOLKIT info -->
-    <p>%%loginInfo%%</p>
+<!-- google API ID TOOLKIT info -->
+    <div>
+      <p>%%loginInfo%%</p>
+    </div>
 
-
-  <div ng-view>
+    <div>
+      <p>%%postBody%%</p>
+    </div>
+<!-- END google API ID TOOLKIT info -->
+  <div ng-view=""></div>
     this is the ng-view div. Put stuff here!
-  </div>
 
    <hr>
 
