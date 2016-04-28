@@ -40,6 +40,12 @@ module.exports = function(app, passport) {
 	  user.findAll(req, res);
 	});
 
+	app.get('/userdetail/:id' , function(req, res) {
+		console.log(req.params.id)
+	  user.findId(req, res);
+
+	});
+
 	// app.get('/event', function(req, res) {
 	//   event.findID(req, res);
 	// });

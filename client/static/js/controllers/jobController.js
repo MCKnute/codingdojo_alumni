@@ -6,7 +6,7 @@ alumniApp.controller('jobController', function(jobFactory, $scope, $location, $r
   function getJobs(){
 
       jobFactory.getJobs(function(data){
-          console.log(data, "this is coming from my factory var customers, it's my hard coded object");
+          // console.log(data, "this is coming from my factory var customers, it's my hard coded object");
           $scope.jobs = data; // $scope.users makes 'users' object available to be used in the html with ng-repeat. This also gets updated anytime a new user is added.
         })
 
@@ -16,9 +16,9 @@ alumniApp.controller('jobController', function(jobFactory, $scope, $location, $r
   function getStacks(){
 
       jobFactory.getStacks(function(data){
-          console.log(data, "this is coming from my factory var customers, it's my hard coded object");
+          // console.log(data, "this is coming from my factory var customers, it's my hard coded object");
           $scope.stacks = data; 
-          console.log($scope.stacks[0].name)
+          // console.log($scope.stacks[0].name)
           $scope.newJob.primaryStack = $scope.stacks[0].name
          
         })
@@ -28,7 +28,7 @@ alumniApp.controller('jobController', function(jobFactory, $scope, $location, $r
 
   $scope.addJob = function(newJob){
 
-    console.log(newJob);
+    // console.log(newJob);
 
     jobFactory.createJob(newJob,function(){ 
       $scope.newJob = {};    // sets input fields to clear.
@@ -39,7 +39,7 @@ alumniApp.controller('jobController', function(jobFactory, $scope, $location, $r
 
   var id = $routeParams.id
 
-  console.log(id, "coming from the controller")
+  // console.log(id, "coming from the controller")
 
   function getJobsDetail(inputId){
 

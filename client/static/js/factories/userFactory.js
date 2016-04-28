@@ -51,11 +51,21 @@ alumniApp.factory('userFactory', function($http) {
   }
 
   factory.createUser = function(data, callback) {
-      console.log(data);
+      // console.log(data);
       $http.post('/user', data).then(function(response){
           
 
         callback();
+      })
+  }
+
+  factory.getUsersDetail = function(id,callback){
+    // console.log(id);
+      $http.get('/userdetail/' + id).then(function(output){
+          
+          users = output.data;
+          // console.log(users, "in Factory, from server side Controller");
+          callback(users);
       })
   } 
   return factory;

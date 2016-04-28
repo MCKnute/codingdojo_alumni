@@ -20,8 +20,9 @@ alumniApp.config(function ($routeProvider) {
     .when('/dashboard',{
         templateUrl: '../partials/dashboard.html'
     })
-    .when('/dashboard/my-profile',{
-        templateUrl: '../partials/my_profile.html'
+    .when('/dashboard/my_profile/detail/:id',{
+        templateUrl: '../partials/my_profile.html',
+        controller: "alumniController"
     })
     .when('/dashboard/my-profile/edit',{
        templateUrl: "../partials/userupdatetest.html",
@@ -32,7 +33,11 @@ alumniApp.config(function ($routeProvider) {
     })
     .when('/dashboard/alumni',{
         templateUrl: '../partials/alumni.html',
-        controller: "alumniListController"
+        controller: "alumniController"
+    })
+    .when('/dashboard/alumni/detail/:id',{
+        templateUrl: '../partials/alumniDetail.html',
+        controller: "alumniController"
     })
     .when('/dashboard/users', {
        templateUrl: "../partials/userprofilestest.html",
