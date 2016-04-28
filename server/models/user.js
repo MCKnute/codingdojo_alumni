@@ -19,6 +19,8 @@ var UserSchema = new mongoose.Schema({
   primaryStack: String,
   gradDate: {},
   summary: String,
+  linkedin: String,
+  github: String,
   beltComplete: {},
   status: String,
 

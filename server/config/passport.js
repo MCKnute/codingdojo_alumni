@@ -7,12 +7,12 @@ var User = require('../models/user');
 module.exports = function(passport) {
 
     passport.serializeUser(function(user, done) {
-        console.log('test 2');
+        console.log('In passport.serializeUser');
         done(null, user.id);
     });
 
     passport.deserializeUser(function(id, done) {
-        console.log('test 3');
+        console.log('In passport.deserializeUser');
         User.findById(id, function(err, user) {
             done(err, user);
         });
@@ -43,6 +43,8 @@ module.exports = function(passport) {
                 newUser.lastName = req.param('lastName');
                 newUser.currentJob = req.param('currentJob');
                 newUser.summary = req.param('summary');
+                newUser.github = req.param('github');
+                newUser.linkedin = req.param('linkedin');
                 newUser.contact = req.param('contact');
                 newUser.primaryStack = req.param('primaryStack');
                 newUser.primaryLocation = req.param('primaryLocation');
