@@ -77,7 +77,7 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
           getUsers();              
         })
       }
-
+});
   // var id = $routeParams.id
 
   // console.log(id, "coming from the controller")
