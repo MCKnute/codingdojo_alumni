@@ -69,11 +69,6 @@ module.exports = function(app, passport) {
 
 	});
 
-	app.get('/job', function(req, res) {
-	  job.find(req, res);
-
-	});
-
 	app.get('/stacks', function(req, res) {
 	  job.findStack(req, res);
 
@@ -101,9 +96,9 @@ module.exports = function(app, passport) {
 	});
 // Login Reg Routes Below this line
 
-	app.get('/loginn', function(req, res) {
-		res.render('login.ejs', { message: req.flash('loginMessage') });
-	});
+	// app.get('/loginn', function(req, res) {
+	// 	res.render('login.ejs', { message: req.flash('loginMessage') });
+	// });
 
 	app.post('/login', passport.authenticate('local-login', {
 		successRedirect: '/profile',
@@ -123,10 +118,10 @@ module.exports = function(app, passport) {
 
 	app.get('/profile', isLoggedIn, function(req, res){
   		User.findOne({_id: req.user._id})
-    	.exec(function(err, user){
+    	.exec(function(err, currentUser){
       	if(err) console.log(err);
-      		console.log(user);
-      		res.json(user)
+      		console.log(currentUser);
+      		res.json(currentUser);
  		})
 	});
 
