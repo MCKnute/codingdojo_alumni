@@ -8,14 +8,14 @@
       <div class="container">
         <h1 class="text-center">Jobs</h1>
          
-        <div class="row text-center">
-          <a href="#/dashboard/jobs/new" class="btn btn-success btn-lg">+ Add New Job Listing</a>
+        <div class="text-center form-group">
+          <a href="#/dashboard/jobs/new" class="btn btn-success btn-lg">+ Add New Job Listing</a><br /><br />
 
-          
+              <input type="text" ng-model='filter_name' placeholder="Filter by Company Name" class="input-lg col-md-6 col-md-offset-3" />
         </div>
-      </div>
-        <table class="table" id="layout" >
-        <input type="text" ng-model='filter_name' placeholder="  filter by company" / class="pull-right">
+      
+        <table class="table table-hover" id="layout" >
+        
         
           <thead>
             <tr>
@@ -23,20 +23,16 @@
               <th>Position Title</th>
               <th>Location</th>
               <th>Primary Stack</th>
-
-
-
+              <th>Actions</th>
             </tr>
           </thead>
-          <tbody ng-repeat="job in jobs | filter: filter_name">
+          <tbody ng-repeat="job in jobs | filter: filter_name" data-link="row" class="rowlink">
             <tr>
-              <td class="fontWeight">{{ job.company }}</td>
-              <td class="fontWeight">{{ job.title }}</td>
-              
-              
-              <td class="fontWeight">{{ job.location }}</td>
-              <td class="fontWeight">{{ job.primaryStack }}</td>
-              <td class="fontWeight"><a href="#/dashboard/jobs/detail/{{job._id}}"><button class="btn btn-success pull-right">Learn More</button></a></td>
+              <td class=""><a href="#/dashboard/jobs/detail/{{job._id}}"><strong>{{ job.company }}</strong></a></td>
+              <td class="">{{ job.title }}</td>
+              <td class="">{{ job.location }}</td>
+              <td class="">{{ job.primaryStack }}</td>
+              <td class="rowlink-skip"><a href="#/dashboard/jobs/detail/{{job._id}}" class="btn btn-default btn-block">&#128270; Learn More</a></td>
 
             </tr>
           </tbody>

@@ -1,52 +1,50 @@
-<!-- <div ng-include="'partials/navbar/dashboard-nav.html'"></div> -->
-
-
-    <div class="dashboard-div">
+<div ng-include="'partials/navbar/landing-nav.html'"></div>
 
 <!-- ////////////////////EDIT BELOW THIS LINE //////////////////////////////-->
 
 
       <div class="container">
-        <h1 class="text-center">Create Profile</h1>
+      	<div class="row">        
+      		<h1 class="text-center">Create Profile</h1>
 	<form class="form-horizontal" role="form" id="form" >
 		<div class="form-group">
-		    <label class="control-label col-sm-2" for="name">First Name: </label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control"  placeholder="enter first name" ng-model='newUser.firstName' >
+		    <label class="control-label col-md-3" for="name">First Name: </label>
+		    <div class="col-md-6">
+		      <input type="text" class="form-control"  placeholder="First name" ng-model='newUser.firstName' required />
 			</div>
 		</div>
 		<div class="form-group">
-		    <label class="control-label col-sm-2" for="name">Last Name:  </label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control"  placeholder="enter last name" ng-model='newUser.lastName' >
+		    <label class="control-label col-md-3" for="name">Last Name:  </label>
+		    <div class="col-md-6">
+		      <input type="text" class="form-control"  placeholder="Last name" ng-model='newUser.lastName' required />
 			</div>
 		</div>
 		<div class="form-group">
-		    <label class="control-label col-sm-2" for="name">Current Job: </label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control"  placeholder="enter current job" ng-model='newUser.currentJob' >
+		    <label class="control-label col-md-3" for="name">Current Job: </label>
+		    <div class="col-md-6">
+		      <input type="text" class="form-control"  placeholder="Current job" ng-model='newUser.currentJob' required />
 			</div>
 		</div>
 		<div class="form-group">
-		    <label class="control-label col-sm-2" for="name">Summary: </label>
-		    <div class="col-sm-10">
-		    <textarea class="form-control" ng-model='newUser.summary'></textarea>
+		    <label class="control-label col-md-3" for="name">Summary: </label>
+		    <div class="col-md-6">
+		    <textarea class="form-control" ng-model='newUser.summary' placeholder="Summary of your coding experience and skills" required /></textarea>
 		      
 			</div>
 		</div>
 		<div class="form-group">
-		    <label class="control-label col-sm-2" for="name">Contact: </label>
-		    <div class="col-sm-10">
-
-		      <input type="text" class="form-control"  placeholder="primary contact email -- will be your login email" ng-model='newUser.email' >
+		    <label class="control-label col-md-3" for="name">Email: </label>
+		    <div class="col-md-6">
+		      <input type="email" class="form-control" placeholder="Primary contact email (this will be your login email)" ng-model='newUser.email' required />
 			</div>
 			</div>
 		<div class="form-group">
-		    <label class="control-label col-sm-2" for="name">Password: </label>
-		    <div class="col-sm-10">
-		      <input type="password" class="form-control"  placeholder="password" ng-model='newUser.password' >
+		    <label class="control-label col-md-3" for="name">Password: </label>
+		    <div class="col-md-6">
+		      <input type="password" class="form-control"  placeholder="Password" ng-model='newUser.password' required min-length="6" />
 			</div>
 		</div>
+
 		<!-- <div class="form-group">
 		    <label class="control-label col-sm-2" for="name">Primary Stack: </label>
 		    <div class="col-sm-10">
@@ -64,11 +62,12 @@
 
 						
 		<div class="form-group"> 
-		    <div class="col-sm-offset-2 col-sm-10">
-		      <button type="submit" class="btn btn-success pull-right" ng-click="register(newUser)">Create Profile</button>
-		    </div>
+		      <div class="col-md-6 col-md-offset-3">
+		      	<button type="submit" class="btn btn-success btn-lg btn-block" ng-click="register(newUser)">Create Alumni Profile</button>
+		      </div>
 		</div>
 	</form>
+	</div>
 
 
  <!-- ////////////////////EDIT ABOVE THIS LINE //////////////////////////////-->
