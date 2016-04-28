@@ -31,20 +31,20 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
         })
 
   }
-  getJobs();
+  // getJobs();
 
   function getStacks(){
 
       jobFactory.getStacks(function(data){
           // console.log(data, "this is coming from my factory var customers, it's my hard coded object");
           $scope.stacks = data; 
-          console.log($scope.stacks[0].name)
-          $scope.newUser.primaryStack = $scope.stacks[0].name
+          console.log($scope.stacks[0].user)
+          $scope.newUser.primaryStack = $scope.stacks[0].user
          
         })
       
   }
-  getStacks();
+  // getStacks();
 
   function getLocations(){
 
@@ -57,7 +57,7 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
         $scope.newUser.primaryLocation = $scope.locations[0].name
       })
   }
-  getLocations();
+  // getLocations();
 
   $scope.addUser = function(newUser){
       console.log(newUser);
