@@ -57,6 +57,29 @@ return {
     })
   }
 
+  // create: function(req,res){
+
+  //   Job.findOne({_id: req.params.id}, function(err, job){
+  //     if(err){
+  //       console.log(err);
+
+
+        
+  //     }
+  //   })
+
+  //   Job.create(req.body, function(err, topic){
+  //       if(err){
+  //           console.log(err);
+  //           res.json({errors: err.errors});
+
+  //       }
+        
+  //       else res.json(true);
+
+  //   })
+  // }
+
   // remove: function(req,res){
   //   Job.remove({_id: req.body}, function(err, job){
   //       res.json(job)
