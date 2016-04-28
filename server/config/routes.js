@@ -13,9 +13,9 @@ module.exports = function(app, passport) {
 	user.find(req, res);
 	});
 
-	app.post('/login', function(req, res){
-		user.find(req,res);
-	});
+	// app.post('/login', function(req, res){
+	// 	user.find(req,res);
+	// });
 
 	app.get('/login', function(req,res){
 
@@ -62,10 +62,16 @@ module.exports = function(app, passport) {
 		events.remove(req,res);
 	});
 
-	// app.get('/job', function(req, res) {
-	//   job.findID(req, res);
+	app.get('/jobdetail/:id' , function(req, res) {
+		console.log(req.params.id)
+	  job.findId(req, res);
 
-	// });
+	});
+	app.get('/job', function(req, res) {
+	  job.find(req, res);
+
+	});
+
 	app.get('/job', function(req, res) {
 	  job.find(req, res);
 
@@ -98,19 +104,19 @@ module.exports = function(app, passport) {
 	});
 // Login Reg Routes Below this line
 
-	app.get('/login', function(req, res) {
+	app.get('/loginn', function(req, res) {
 		res.render('login.ejs', { message: req.flash('loginMessage') });
 	});
 
-	app.post('/login', passport.authenticate('local-login', {
+	app.post('/loginn', passport.authenticate('local-login', {
 		successRedirect: '/profile',
 		failureRedirect: '/login',
 		failureFlash: true
 	}));
 
-	app.get('/signup', function(req, res) {
-		res.render('signup.ejs', { message: req.flash('signupMessage') });
-	});
+	// app.get('/signup', function(req, res) {
+	// 	res.render('signup.ejs', { message: req.flash('signupMessage') });
+	// });
 
 	app.post('/signup', passport.authenticate('local-signup', {
 		successRedirect: '/profile',
