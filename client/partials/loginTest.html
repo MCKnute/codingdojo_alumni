@@ -6,14 +6,14 @@
 	<h1 style="padding-top: 2em" class="text-center">Login via Username</h1>
   	<h4>Please enter a username to continue</h4>
 
-  	<form ng-submit="login(user)">
-  	<label> First Name
-    	<input type="text" ng-model="user.firstName">
+  	<form>
+  	<label> Email
+    	<input type="text" ng-model="user.email">
     </label>
-    <label> Last Name
-    	<input type="text" ng-model="user.lastName">
+    <label> Password
+    	<input type="password" ng-model="user.password">
     </label>
-    	<button class="btn btn-lg btn-default">GO!</button>
+    	<button class="btn btn-lg btn-default" ng-click='login(user)'>GO!</button>
   	</form>
 
   </div>
