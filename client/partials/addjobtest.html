@@ -55,45 +55,6 @@
 		</div>
 		<input type="text" ng-model='filter_name' placeholder="  filter names" / class="pull-right">
 	</form>
-
-	<table class="table" id="layout" >
-		  	
-			    <thead>
-			      <tr>
-			        <th>Customer Name</th>			     
-
-			      </tr>
-			    </thead>
-			    <tbody ng-repeat="job in jobs | filter: filter_name">
-			      <tr>
-			        <td class="fontWeight">{{ job.company }}</td>
-			        <td class="fontWeight">{{ job.title }}</td>
-			        <td class="fontWeight">{{ job.description }}</td>
-			        <td class="fontWeight">{{ job.status }}</td>
-			        <td class="fontWeight">{{ job.location }}</td>
-			        <td class="fontWeight">{{ job.primaryStack }}</td>
-			        <td class="fontWeight">{{ job.contact }}</td>
-
-			      </tr>
-			    </tbody>
-			 </table>
-
-			 	<table class="table" id="layout" >
-		  	
-			    <thead>
-			      <tr>
-			        <th>Stacks</th>			     
-
-			      </tr>
-			    </thead>
-			    <tbody ng-repeat="stack in stacks | filter: filter_name">
-			      <tr>
-			        <td class="fontWeight">{{ stack.name }}</td>
-
-
-			      </tr>
-			    </tbody>
-			 </table>
 	
 	 <hr />
 

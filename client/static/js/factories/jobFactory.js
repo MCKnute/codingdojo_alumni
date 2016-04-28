@@ -1,6 +1,16 @@
 alumniApp.factory('jobFactory', function($http) {
   var factory = {};
 
+  factory.getJobsDetail = function(id,callback){
+    console.log(id);
+      $http.get('/jobdetail/' + id).then(function(output){
+          
+          jobs = output.data;
+          console.log(jobs, "in Factory, from server side Controller");
+          callback(jobs);
+      })
+  }
+
   factory.getJobs = function(callback){
       $http.get('/job').then(function(output){
           

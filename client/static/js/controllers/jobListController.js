@@ -1,4 +1,4 @@
-alumniApp.controller('jobController', function(jobFactory, $scope, $location){
+alumniApp.controller('jobListController', function(jobFactory, $scope, $location){
 
   $scope.newJob = {};
   $scope.stacks = [];
@@ -31,7 +31,7 @@ alumniApp.controller('jobController', function(jobFactory, $scope, $location){
    // this is form data getting passed through from HTML View
     jobFactory.createJob(newJob,function(){ 
       $scope.newJob = {};    // sets input fields to clear.
-       $locatidon.path('#/dashboard/jobs');
+       // $location.path('/');
       getJobs();              
     });
   }
