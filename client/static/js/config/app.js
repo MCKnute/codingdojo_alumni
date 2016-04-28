@@ -13,6 +13,10 @@ alumniApp.config(function ($routeProvider) {
         templateUrl: "../partials/loginTest.html",
         controller: "loginController"
      })
+    .when('/signup', {
+        templateUrl: "../partials/signup.html",
+        controller: "signupController"
+    })
     .when('/dashboard',{
         templateUrl: '../partials/dashboard.html'
     })
@@ -21,7 +25,7 @@ alumniApp.config(function ($routeProvider) {
     })
     .when('/dashboard/my-profile/edit',{
        templateUrl: "../partials/userupdatetest.html",
-       controller: "updateController"
+       controller: "profileController"
     })
     .when('/dashboard/messages',{
         templateUrl: '../partials/messages.html'

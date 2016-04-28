@@ -16,6 +16,7 @@ var UserSchema = new mongoose.Schema({
   // },
   currentJob: String,
   primaryLocation: String,
+  primaryStack: String,
   gradDate: {},
   summary: String,
   beltComplete: {},
