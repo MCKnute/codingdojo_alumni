@@ -75,18 +75,13 @@ module.exports = function(app, passport) {
 
 	});
 
-<<<<<<< HEAD
-	// app.get('/job', function(req, res) {
-	//   job.find(req, res);
 
-	// });
 
 	app.post('/job', function(req, res){
     job.create(req, res);
    });
 
-=======
->>>>>>> 73808af155e673d59b6311f901ff599fd96e53fb
+
 	app.get('/stacks', function(req, res) {
 	  job.findStack(req, res);
 
