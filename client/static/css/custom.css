@@ -54,6 +54,9 @@ body {
   margin: 0;
   padding: 2em 5em 1em;
 }
+.glyphicon-menu {
+  padding-right: .5em;
+}
 
 @media (min-width: 1px) {
   .navbar-toggle {
