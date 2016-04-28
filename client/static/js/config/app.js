@@ -9,6 +9,10 @@ alumniApp.config(function ($routeProvider) {
         templateUrl: "../partials/loginTest.html",
         controller: "loginController"
      })
+    .when('/signup', {
+        templateUrl: "../partials/signup.html",
+        controller: "signupController"
+    })
     .when('/dashboard',{
         templateUrl: '../partials/dashboard.html'
     })
