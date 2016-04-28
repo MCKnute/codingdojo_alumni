@@ -29,6 +29,11 @@ alumniApp.factory('loginFactory', function($http, $location) {
           return
           callback(userId);
       })
-  }    
+  }
+
+  factory.register = function(data, successHandler, failHandler) {
+    $http.post('/signup', data).then(successHandler, failHandler);
+  }
+
   return factory;
 });

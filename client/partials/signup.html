@@ -1,4 +1,4 @@
-<div ng-include="'partials/navbar/dashboard-nav.html'"></div>
+<!-- <div ng-include="'partials/navbar/dashboard-nav.html'"></div> -->
 
 
     <div class="dashboard-div">
@@ -16,7 +16,7 @@
 			</div>
 		</div>
 		<div class="form-group">
-		    <label class="control-label col-sm-2" for="name">Last Name: {{ $scope.currentUser }} </label>
+		    <label class="control-label col-sm-2" for="name">Last Name:  </label>
 		    <div class="col-sm-10">
 		      <input type="text" class="form-control"  placeholder="enter last name" ng-model='newUser.lastName' >
 			</div>
@@ -38,10 +38,16 @@
 		    <label class="control-label col-sm-2" for="name">Contact: </label>
 		    <div class="col-sm-10">
 
-		      <input type="text" class="form-control"  placeholder="primary contact email" ng-model='newUser.contact' >
+		      <input type="text" class="form-control"  placeholder="primary contact email -- will be your login email" ng-model='newUser.email' >
 			</div>
 			</div>
 		<div class="form-group">
+		    <label class="control-label col-sm-2" for="name">Password: </label>
+		    <div class="col-sm-10">
+		      <input type="password" class="form-control"  placeholder="password" ng-model='newUser.password' >
+			</div>
+		</div>
+		<!-- <div class="form-group">
 		    <label class="control-label col-sm-2" for="name">Primary Stack: </label>
 		    <div class="col-sm-10">
 		    	<select class="form-control" ng-model='newUser.primaryStack'  ng-options='stack.name as stack.name for stack in stacks'>
@@ -54,62 +60,16 @@
 		    	<select class="form-control" ng-model='newUser.primaryLocation'  ng-options='location.name as location.name for location in locations'>
 				    	</select>
 			</div>
-		</div>
+		</div> -->
 
 						
 		<div class="form-group"> 
 		    <div class="col-sm-offset-2 col-sm-10">
-		      <button type="submit" class="btn btn-success pull-right" ng-click="addUser(newUser)">Create Profile</button>
+		      <button type="submit" class="btn btn-success pull-right" ng-click="register(newUser)">Create Profile</button>
 		    </div>
 		</div>
-		<input type="text" ng-model='filter_name' placeholder="  filter names" / class="pull-right">
 	</form>
 
-	<table class="table" id="layout" >
-		  	
-			    <thead>
-			      <tr>
-			        <th>First Name</th>
-			        <th>Last Name</th>
-			        <th>Current Job</th>
-			        <th>Dojo Location</th>
-			        <th>Grad Date</th>
-			        <th>Summary</th>
-			        <th>Belts Completed</th>			     
-
-			      </tr>
-			    </thead>
-			    <tbody ng-repeat="user in users | filter: filter_name">
-			      <tr>
-			        <td class="fontWeight">{{ user.firstName }}</td>
-			        <td class="fontWeight">{{ user.lastName }}</td>
-			        <td class="fontWeight">{{ user.currentJob }}</td>
-			        <td class="fontWeight">{{ user.primaryLocation }}</td>
-			        <td class="fontWeight">{{ user.gradDate }}</td>
-			        <td class="fontWeight">{{ user.summary }}</td>
-			        <td class="fontWeight">{{ user.beltComplete }}</td>
-			        <td class="fontWeight">{{ user.Status }}</td>
-
-			      </tr>
-			    </tbody>
-			 </table>
-
-			 	<table class="table" id="layout" >
-		  	
-			    <thead>
-			      <tr>
-			        <th>Stacks</th>			     
-
-			      </tr>
-			    </thead>
-			    <tbody ng-repeat="stack in stacks | filter: filter_name">
-			      <tr>
-			        <td class="fontWeight">{{ stack.name }}</td>
-
-
-			      </tr>
-			    </tbody>
-			 </table>
 
  <!-- ////////////////////EDIT ABOVE THIS LINE //////////////////////////////-->
 

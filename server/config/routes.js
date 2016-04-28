@@ -108,9 +108,9 @@ module.exports = function(app, passport) {
 		failureFlash: true
 	}));
 
-	app.get('/signup', function(req, res) {
-		res.render('signup.ejs', { message: req.flash('signupMessage') });
-	});
+	// app.get('/signup', function(req, res) {
+	// 	res.render('signup.ejs', { message: req.flash('signupMessage') });
+	// });
 
 	app.post('/signup', passport.authenticate('local-signup', {
 		successRedirect: '/profile',
