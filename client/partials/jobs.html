@@ -11,10 +11,36 @@
         <div class="row text-center">
           <a href="#/dashboard/jobs/new" class="btn btn-success btn-lg">+ Add New Job Listing</a>
 
-    
+          
         </div>
       </div>
+        <table class="table" id="layout" >
+        <input type="text" ng-model='filter_name' placeholder="  filter by company" / class="pull-right">
+        
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Position Title</th>
+              <th>Location</th>
+              <th>Primary Stack</th>
 
+
+
+            </tr>
+          </thead>
+          <tbody ng-repeat="job in jobs | filter: filter_name">
+            <tr>
+              <td class="fontWeight">{{ job.company }}</td>
+              <td class="fontWeight">{{ job.title }}</td>
+              
+              
+              <td class="fontWeight">{{ job.location }}</td>
+              <td class="fontWeight">{{ job.primaryStack }}</td>
+              <td class="fontWeight"><a href="#/dashboard/jobs/detail/{{job._id}}"><button class="btn btn-success pull-right">Learn More</button></a></td>
+
+            </tr>
+          </tbody>
+       </table>
 <!-- ////////////////////EDIT ABOVE THIS LINE //////////////////////////////-->
 
       <hr />
