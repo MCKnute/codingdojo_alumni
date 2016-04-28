@@ -72,10 +72,14 @@ module.exports = function(app, passport) {
 
 	});
 
-	app.get('/job', function(req, res) {
-	  job.find(req, res);
+	// app.get('/job', function(req, res) {
+	//   job.find(req, res);
 
-	});
+	// });
+
+	app.post('/job', function(req, res){
+    job.create(req, res);
+   });
 
 	app.get('/stacks', function(req, res) {
 	  job.findStack(req, res);
@@ -92,9 +96,7 @@ module.exports = function(app, passport) {
 
 	});
 
-	app.post('/job', function(req, res){
-    	job.create(req, res);
-    });
+
 
     
 
