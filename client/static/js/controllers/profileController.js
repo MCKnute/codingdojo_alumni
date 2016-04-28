@@ -1,4 +1,4 @@
-alumniApp.controller('profileController', function(userFactory, loginFactory, jobFactory, $scope, $location){
+alumniApp.controller('profileController', function(userFactory, loginFactory, jobFactory, $scope, $location, $routeParams){
   $scope.newJob = {};
   $scope.newUser = {};
   $scope.stacks = [];
@@ -27,7 +27,7 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
 
       jobFactory.getJobs(function(data){
           // console.log(data, "this is coming from my factory var customers, it's my hard coded object");
-          $scope.jobs = data; // $scope.users makes 'users' object available to be used in the html with ng-repeat. This also gets updated anytime a new user is added.
+          $scope.jobs = data; 
         })
 
   }
@@ -70,6 +70,20 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
 
       }
   });
+
+  // var id = $routeParams.id
+
+  // console.log(id, "coming from the controller")
+
+  // function getJobsDetail(inputId){
+
+  //     jobFactory.getJobsDetail(inputId, function(data){
+  //         console.log(data, "from Factory, back into Controller");
+  //         $scope.jobs = data; // $scope.users makes 'users' object available to be used in the html with ng-repeat. This also gets updated anytime a new user is added.
+  //       })
+
+  // }
+  // getJobsDetail(id);
 
       // $scope.login = function(user){
       //       loginFactory.login(user, function(){

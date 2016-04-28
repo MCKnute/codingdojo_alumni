@@ -40,6 +40,12 @@ module.exports = function(app, passport) {
 	  user.findAll(req, res);
 	});
 
+	app.get('/userdetail/:id' , function(req, res) {
+		console.log(req.params.id)
+	  user.findId(req, res);
+
+	});
+
 	// app.get('/event', function(req, res) {
 	//   event.findID(req, res);
 	// });
@@ -69,6 +75,13 @@ module.exports = function(app, passport) {
 
 	});
 
+
+
+	app.post('/job', function(req, res){
+    job.create(req, res);
+   });
+
+
 	app.get('/stacks', function(req, res) {
 	  job.findStack(req, res);
 
@@ -84,9 +97,7 @@ module.exports = function(app, passport) {
 
 	});
 
-	app.post('/job', function(req, res){
-    	job.create(req, res);
-    });
+
 
     
 
