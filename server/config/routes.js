@@ -2,10 +2,11 @@ var events = require('./../controllers/events.js');
 var job = require('./../controllers/jobs.js')
 var post = require('./../controllers/posts.js')
 var user = require('./../controllers/users.js')
+var User = require('../models/user');
 
 // comment
 module.exports = function(app, passport) {
-	app.get('/dash', function(req, res) {
+	app.get('/dashboard', function(req, res) {
 	  user.find(req, res);
 	});
 
@@ -17,15 +18,11 @@ module.exports = function(app, passport) {
 	// 	user.find(req,res);
 	// });
 
-	app.get('/login', function(req,res){
+	// app.get('/login', function(req,res){
 
-		user.create(req,res);
+	// 	user.create(req,res);
 
-	})
-
-	app.get('/dash', function(req, res) {
-	  user.find(req, res);
-	});
+	// })
 
 	// app.get('/profile', function(req, res) {
 	//   user.findID(req, res);
@@ -108,7 +105,7 @@ module.exports = function(app, passport) {
 		res.render('login.ejs', { message: req.flash('loginMessage') });
 	});
 
-	app.post('/loginn', passport.authenticate('local-login', {
+	app.post('/login', passport.authenticate('local-login', {
 		successRedirect: '/profile',
 		failureRedirect: '/login',
 		failureFlash: true
@@ -124,10 +121,13 @@ module.exports = function(app, passport) {
 		failureFlash: true
 	}));
 
-	app.get('/profile', isLoggedIn, function(req, res) {
-		res.render('profile.ejs', {
-			user: req.user
-		});
+	app.get('/profile', isLoggedIn, function(req, res){
+  		User.findOne({_id: req.user._id})
+    	.exec(function(err, user){
+      	if(err) console.log(err);
+      		console.log(user);
+      		res.json(user)
+ 		})
 	});
 
 	app.get('/logout', function(req, res) {

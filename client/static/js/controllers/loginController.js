@@ -1,13 +1,15 @@
 alumniApp.controller('loginController', function(userFactory, loginFactory, jobFactory, $scope, $location){
 
-  	$scope.login = function(user){
-		loginFactory.login(user, function(){
-	    	loginFactory.getUser(function(user){
-	    	// console.log(user);
-	      		$location.path('/userUpdate');
-	    	})
-		})
-	}
+  	$scope.login = function(data){
+      console.log('yo');
+    $scope.flash = {};
+    loginFactory.login(data, function(res){
+      $location.path('/profile')
+    }, function(res){
+      $scope.flash.message = res.data.message;
+      $scope.loginUser = {}
+    })
+  }
 
   $scope.register = function(data){
     $scope.flash = {};
@@ -21,7 +23,6 @@ alumniApp.controller('loginController', function(userFactory, loginFactory, jobF
   $scope.newUser = {};
   $scope.stacks = [];
   $scope.locations = [];
-  console.log($scope.login);
 
   function getCurrentUser(){
     loginFactory.getUser(function(data){
@@ -50,7 +51,7 @@ alumniApp.controller('loginController', function(userFactory, loginFactory, jobF
     })
   }
   
-  getJobs();
+  // getJobs();
   
   function getStacks(){
     jobFactory.getStacks(function(data){
@@ -62,7 +63,7 @@ alumniApp.controller('loginController', function(userFactory, loginFactory, jobF
     })
   }
 
-  getStacks();
+  // getStacks();
 
   function getLocations(){
     userFactory.getLocations(function(data){
@@ -76,7 +77,7 @@ alumniApp.controller('loginController', function(userFactory, loginFactory, jobF
     })
   }
 
-  getLocations();
+  // getLocations();
 
   $scope.addUser = function(newUser){
     console.log(newUser);

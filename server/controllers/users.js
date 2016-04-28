@@ -33,6 +33,7 @@ return {
         else{
       //is there a user?
             if(user){
+                console.log(user);
             res.json(user);
             } 
                 else{
