@@ -2,11 +2,11 @@ alumniApp.factory('jobFactory', function($http) {
   var factory = {};
 
   factory.getJobsDetail = function(id,callback){
-    console.log(id);
+    // console.log(id);
       $http.get('/jobdetail/' + id).then(function(output){
           
           jobs = output.data;
-          console.log(jobs, "in Factory, from server side Controller");
+          // console.log(jobs, "in Factory, from server side Controller");
           callback(jobs);
       })
   }
@@ -30,7 +30,7 @@ alumniApp.factory('jobFactory', function($http) {
   }
 
   factory.createJob = function(data, callback) {
-      console.log(data);
+      // console.log(data);
       $http.post('/job', data).then(function(response){
           
 
