@@ -1,11 +1,31 @@
-alumniApp.controller('signupController', function(userFactory, loginFactory, jobFactory, $scope, $location){
-
+alumniApp.controller('signupController', function(userFactory, loginFactory, jobFactory, $scope, $http, $location){
 
   $scope.register = function(data){
     $scope.flash = {};
     loginFactory.register(data, function(res){
+      if (true) {
+        $scope.flash.message = res.data.message;
+        $scope.newUser = {};
+        $location.path('/login');
+        alert("You have successfully registered!");
+      }else{
+        $scope.flash.message = res.data.message;
+      }
+    })
+  }
+
+  $scope.login = function(data){
+      console.log('___in loginController___');
+    $scope.flash = {};
+    loginFactory.login(data, function(res){
+      console.log('__bout to go to your dashboard__',res);
+
+      // app.js routeProvider
+      $location.path('/dashboard/my-profile');
+      // END
+    }, function(res){
       $scope.flash.message = res.data.message;
-      $scope.newUser = {}
+      $scope.loginUser = {};
     })
   }
 
@@ -14,6 +34,26 @@ alumniApp.controller('signupController', function(userFactory, loginFactory, job
   $scope.stacks = [];
   $scope.locations = [];
   console.log($scope.login);
+
+
+  function getCurrentUser(){
+    loginFactory.getUser(function(data){
+      $scope.currentUser = data;
+      console.log($scope.currentUser, "this is coming from updateController")
+    })
+  }
+
+  // getCurrentUser();
+  console.log($scope.currentUser);
+
+  function getUsers(){
+    userFactory.getUsers(function(data){
+      // console.log(data, "this is coming from my factory var customers, it's my hard coded object");
+      $scope.users = data; 
+    })
+  }
+
+  // getUsers();
 
   function getJobs(){
     jobFactory.getJobs(function(data){

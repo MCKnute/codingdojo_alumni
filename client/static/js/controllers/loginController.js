@@ -1,10 +1,11 @@
-alumniApp.controller('loginController', function(userFactory, loginFactory, jobFactory, $scope, $location){
+alumniApp.controller('loginController', function(userFactory, loginFactory, jobFactory, $scope, $http, $location){
 
-  	$scope.login = function(data){
-      console.log('yo');
+  $scope.login = function(data){
+      console.log('___in loginController___');
     $scope.flash = {};
     loginFactory.login(data, function(res){
-      $location.path('/profile')
+      console.log('__bout to go to your dashboard__',res);
+      $location.path('/profile');
     }, function(res){
       $scope.flash.message = res.data.message;
       $scope.loginUser = {}
@@ -32,8 +33,7 @@ alumniApp.controller('loginController', function(userFactory, loginFactory, jobF
   }
 
   getCurrentUser();
-
-  console.log($scope.currentUser)
+  console.log($scope.currentUser);
 
   function getUsers(){
     userFactory.getUsers(function(data){

@@ -1,74 +1,127 @@
 <div ng-include="'partials/navbar/landing-nav.html'"></div>
 
 <!-- ////////////////////EDIT BELOW THIS LINE //////////////////////////////-->
+<!-- <h1 class="text-center" style="background-color: #222; color: white; margin-top: 0; padding-top: 1em; padding-bottom: 1em">Access CodingDojo on Tap</h1>
+	<div class="container"> -->
 
+    <div class="container">
+  	<div class="row">
+  		<h1 class="text-center" style="margin-top: 1em; margin-bottom: 1em">Access CodingDojo on Tap</h1>
 
-      <div class="container">
-      	<div class="row">        
-      		<h1 class="text-center">Create Profile</h1>
-	<form class="form-horizontal" role="form" id="form" >
-		<div class="form-group">
-		    <label class="control-label col-md-3" for="name">First Name: </label>
-		    <div class="col-md-6">
-		      <input type="text" class="form-control"  placeholder="First name" ng-model='newUser.firstName' required />
+  		<!-- <a type="button" class="btn btn-default btn-block visible-xs" href="#/signup/#login-headline" target="_self">Login In</a> -->
+	
+		<div class="col-md-8 col-xs-12" style="display: inline-block">
+			<h2 class="text-center">Register</h2>
+		<form class="form-horizontal" role="form" id="form" >
+			<div class="form-group">
+			    <label class="control-label col-md-2" for="name">First Name: </label>
+			    <div class="col-md-9">
+			      <input type="text" class="form-control"  placeholder="First name" ng-model='newUser.firstName' required />
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-		    <label class="control-label col-md-3" for="name">Last Name:  </label>
-		    <div class="col-md-6">
-		      <input type="text" class="form-control"  placeholder="Last name" ng-model='newUser.lastName' required />
+			<div class="form-group">
+			    <label class="control-label col-md-2" for="name">Last Name:  </label>
+			    <div class="col-md-9">
+			      <input type="text" class="form-control"  placeholder="Last name" ng-model='newUser.lastName' required />
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-		    <label class="control-label col-md-3" for="name">Current Job: </label>
-		    <div class="col-md-6">
-		      <input type="text" class="form-control"  placeholder="Current job" ng-model='newUser.currentJob' required />
+			<div class="form-group">
+			    <label class="control-label col-md-2" for="name">Current Job: </label>
+			    <div class="col-md-9">
+			      <input type="text" class="form-control"  placeholder="Current job" ng-model='newUser.currentJob' required />
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-		    <label class="control-label col-md-3" for="name">Summary: </label>
-		    <div class="col-md-6">
-		    <textarea class="form-control" ng-model='newUser.summary' placeholder="Summary of your coding experience and skills" required /></textarea>
-		      
+			<div class="form-group">
+			    <label class="control-label col-md-2" for="name">Summary: </label>
+			    <div class="col-md-9">
+			    <textarea class="form-control" ng-model='newUser.summary' placeholder="Summary of your coding experience and skills" required /></textarea>
+			      
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-		    <label class="control-label col-md-3" for="name">Email: </label>
-		    <div class="col-md-6">
-		      <input type="email" class="form-control" placeholder="Primary contact email (this will be your login email)" ng-model='newUser.email' required />
-			</div>
-			</div>
-		<div class="form-group">
-		    <label class="control-label col-md-3" for="name">Password: </label>
-		    <div class="col-md-6">
-		      <input type="password" class="form-control"  placeholder="Password" ng-model='newUser.password' required min-length="6" />
-			</div>
-		</div>
 
-		<!-- <div class="form-group">
-		    <label class="control-label col-sm-2" for="name">Primary Stack: </label>
-		    <div class="col-sm-10">
-		    	<select class="form-control" ng-model='newUser.primaryStack'  ng-options='stack.name as stack.name for stack in stacks'>
-				    	</select>
+			<div class="form-group">
+			    <label class="control-label col-md-2" for="name">LinkedIn: </label>
+			    <div class="col-md-9">
+			      <input type="text" class="form-control"  placeholder="Your profile name (i.e. - www.linkedin.com/in/(_profile_name_)" ng-model='newUser.linkedin' required />
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-		    <label class="control-label col-sm-2" for="name">Dojo Location: </label>
-		    <div class="col-sm-10">
-		    	<select class="form-control" ng-model='newUser.primaryLocation'  ng-options='location.name as location.name for location in locations'>
-				    	</select>
+			<div class="form-group">
+			    <label class="control-label col-md-2" for="name">Github Username: </label>
+			    <div class="col-md-9">
+			      <input type="text" class="form-control"  placeholder="github username" ng-model='newUser.github' required />
+				</div>
 			</div>
-		</div> -->
+			<div class="form-group"> 
+			    <div class="col-sm-offset-2 col-sm-10">
+			      <button type="submit" class="btn btn-success pull-right" ng-click="register(newUser)">Create Profile</button>
+			    </div>
+			</div>
 
-						
-		<div class="form-group"> 
-		      <div class="col-md-6 col-md-offset-3">
-		      	<button type="submit" class="btn btn-success btn-lg btn-block" ng-click="register(newUser)">Create Alumni Profile</button>
-		      </div>
+			<div class="form-group"> 
+			    <label class="control-label col-md-2" for="name">Email: </label>
+			    <div class="col-md-9">
+			      <input type="email" class="form-control" placeholder="Primary contact email (this will be your login email)" ng-model='newUser.email' required />
+				</div>
+			</div>
+
+			<div class="form-group">
+			    <label class="control-label col-md-2" for="name">Password: </label>
+			    <div class="col-md-9">
+			      <input type="password" class="form-control"  placeholder="Password" ng-model='newUser.password' required min-length="6" />
+				</div>
+			</div>
+
+			<!-- <div class="form-group">
+			    <label class="control-label col-sm-2" for="name">Primary Stack: </label>
+			    <div class="col-sm-10">
+			    	<select class="form-control" ng-model='newUser.primaryStack'  ng-options='stack.name as stack.name for stack in stacks'>
+					    	</select>
+				</div>
+			</div>
+			<div class="form-group">
+			    <label class="control-label col-sm-2" for="name">Dojo Location: </label>
+			    <div class="col-sm-10">
+			    	<select class="form-control" ng-model='newUser.primaryLocation'  ng-options='location.name as location.name for location in locations'>
+					    	</select>
+				</div>
+			</div> -->
+							
+			<div class="form-group"> 
+			      <div class="col-md-9 col-md-offset-2">
+			      	<button type="submit" class="btn btn-success btn-lg btn-block" ng-click="register(newUser)">Create Alumni Profile</button>
+			      </div>
+			</div>
+		</form>
 		</div>
-	</form>
+<!-- //////// END Registration //////// -->
+
+<!-- //////// Login //////// -->
+		<div class="col-md-4 col-xs-12" style="display: inline-block; border: 1px solid #ccc">
+			<h2 class="text-center" name="login-headline">Log In</h2>
+
+			<form class="form-horizontal" role="form" id="form" >
+			<div class="form-group">
+			    <label class="control-label col-md-3" for="name">Email: </label>
+			    <div class="col-md-9">
+			      <input type="email" class="form-control"  placeholder="First name" ng-model='User.email' required />
+				</div>
+			</div>
+			<div class="form-group">
+			    <label class="control-label col-md-3" for="name">Password:  </label>
+			    <div class="col-md-9">
+			      <input type="password" class="form-control"  placeholder="Last name" ng-model='User.password' required />
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-12">
+					<button type="submit" class="btn btn-default btn-lg btn-block" ng-click="login(User)">Log In</button>
+				</div>
+			</div>
+		</div>
 	</div>
 
+	  </div>
+<!-- /////////////  END LOGIN  /////////////// -->
 
  <!-- ////////////////////EDIT ABOVE THIS LINE //////////////////////////////-->
 
