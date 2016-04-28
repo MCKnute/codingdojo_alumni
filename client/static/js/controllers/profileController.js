@@ -17,7 +17,7 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
 
       jobFactory.getJobs(function(data){
           // console.log(data, "this is coming from my factory var customers, it's my hard coded object");
-          $scope.jobs = data; // $scope.users makes 'users' object available to be used in the html with ng-repeat. This also gets updated anytime a new user is added.
+          $scope.jobs = data; 
         })
 
   }
