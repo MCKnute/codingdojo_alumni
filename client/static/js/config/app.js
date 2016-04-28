@@ -30,11 +30,16 @@ alumniApp.config(function ($routeProvider) {
        controller: "profileController"
     })
     .when('/dashboard/jobs',{
-        templateUrl: '../partials/jobs.html'
+        templateUrl: '../partials/jobs.html',
+        controller: "jobListController"
     })
     .when('/dashboard/jobs/new', {
        templateUrl: "../partials/addjobtest.html",
        controller: "jobController"
+    })
+    .when('/dashboard/jobs/detail/:id', {
+       templateUrl: "../partials/jobDetail.html",
+       controller: "jobDetailController"
     })
     .when('/dashboard/events',{
         templateUrl: '../partials/events.html'

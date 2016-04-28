@@ -62,10 +62,16 @@ module.exports = function(app, passport) {
 		events.remove(req,res);
 	});
 
-	// app.get('/job', function(req, res) {
-	//   job.findID(req, res);
+	app.get('/jobdetail/:id' , function(req, res) {
+		console.log(req.params.id)
+	  job.findId(req, res);
 
-	// });
+	});
+	app.get('/job', function(req, res) {
+	  job.find(req, res);
+
+	});
+
 	app.get('/job', function(req, res) {
 	  job.find(req, res);
 

@@ -21,44 +21,28 @@ return {
             console.log(err);
         }   
         else{
-
-            if(user){
-            res.json(user);
-            } 
-                else{
-                //otherwise make a user
-                Job.create({name: req.body.name}, function(err, newUser){
-                    if(err) { console.log(err); }
-                    res.json(newUser);
-                })
-                }
-          // console.log(results);
             res.json(results);
 
          }
         })
      },
-    //  findId: function(req, res) {
+     findId: function(req, res) {
+      //need to add user id to this so we can add personal messaging  before searching for job detail. 
 
-    //    Job.findOne({_id: req.body._id}, function(err, user){
-    //     if(err){ 
-    //         console.log(err);
-    //     }   
-    //     else{
+      console.log(req.params.id, "this is in server side controller")
 
-    //         if(user){
-    //         res.json(user);
-    //         } 
-    //             else{
-    //             //otherwise make a user
-    //             Job.create({name: req.body.name}, function(err, newUser){
-    //                 if(err) { console.log(err); }
-    //                 res.json(newUser);
-    //             })
-    //             }
-    //      }
-    //     })
-    // },
+       Job.findOne({_id: req.params.id}, function(err, job){
+        if(err){ 
+            console.log(err);
+        }   
+        else{
+
+              console.log(job);
+            res.json(job);
+            } 
+               
+        })
+    },
 
     create: function(req,res){
     Job.create(req.body, function(err, topic){
