@@ -21,7 +21,7 @@ alumniApp.controller('signupController', function(userFactory, loginFactory, job
       console.log('__bout to go to your dashboard__',res);
 
       // app.js routeProvider
-      $location.path('/dashboard/my-profile');
+      $location.path('/dashboard');
       // END
     }, function(res){
       $scope.flash.message = res.data.message;
