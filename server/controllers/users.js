@@ -24,26 +24,44 @@ return {
          }
         })
     },
+    // findId: function(req, res) {
+    //     console.log(req.body._id, "this is in the controller")
+    //    User.findOne({_id: req.body._id}, function(err, user){
+    //     if(err){ 
+    //         console.log(err);
+    //     }   
+    //     else{
+    //   //is there a user?
+    //         if(user){
+    //             console.log(user);
+    //         res.json(user);
+    //         } 
+    //             else{
+    //             //otherwise make a user:
+    //             User.create({name: req.body.name}, function(err, newUser){
+    //                 if(err) { console.log(err); }
+    //                 res.json(newUser);
+    //             })
+    //             }
+    //      }
+    //     })
+    // },
+
     findId: function(req, res) {
-        console.log(req.body._id, "this is in the controller")
-       User.findOne({_id: req.body._id}, function(err, user){
+      //need to add user id to this so we can add personal messaging  before searching for job detail. 
+
+      console.log(req.params.id, "this is in server side controller")
+
+       User.findOne({_id: req.params.id}, function(err, user){
         if(err){ 
             console.log(err);
         }   
         else{
-      //is there a user?
-            if(user){
-                console.log(user);
+
+              console.log(user);
             res.json(user);
             } 
-                else{
-                //otherwise make a user:
-                User.create({name: req.body.name}, function(err, newUser){
-                    if(err) { console.log(err); }
-                    res.json(newUser);
-                })
-                }
-         }
+               
         })
     },
     // update: function(req, res){ // have not specified what we're going to edit for this controller yet.

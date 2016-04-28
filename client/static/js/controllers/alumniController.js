@@ -1,4 +1,4 @@
-alumniApp.controller('jobController', function(jobFactory, $scope, $location, $routeParams){
+alumniApp.controller('alumniController', function(jobFactory, userFactory, $scope, $location, $routeParams){
 
   $scope.newJob = {};
   $scope.stacks = [];
@@ -12,6 +12,16 @@ alumniApp.controller('jobController', function(jobFactory, $scope, $location, $r
 
   }
   getJobs();
+
+  function getUsers(){
+
+      userFactory.getUsers(function(data){
+          // console.log(data, "this is coming from my factory var customers, it's my hard coded object");
+          $scope.users = data; // $scope.users makes 'users' object available to be used in the html with ng-repeat. This also gets updated anytime a new user is added.
+        })
+
+  }
+  getUsers();
 
   function getStacks(){
 
@@ -27,27 +37,26 @@ alumniApp.controller('jobController', function(jobFactory, $scope, $location, $r
   getStacks();
 
   $scope.addJob = function(newJob){
-
     // console.log(newJob);
-
+   // this is form data getting passed through from HTML View
     jobFactory.createJob(newJob,function(){ 
       $scope.newJob = {};    // sets input fields to clear.
-       $locatidon.path('#/dashboard/jobs');
+       // $location.path('/');
       getJobs();              
     });
   }
 
-  var id = $routeParams.id
+    var id = $routeParams.id
 
-  // console.log(id, "coming from the controller")
+    // console.log(id, "coming from the controller")
 
-  function getJobsDetail(inputId){
+    function getUsersDetail(inputId){
 
-      jobFactory.getJobsDetail(inputId, function(data){
-          console.log(data, "from Factory, back into Controller");
-          $scope.jobs = data; // $scope.users makes 'users' object available to be used in the html with ng-repeat. This also gets updated anytime a new user is added.
+    userFactory.getUsersDetail(inputId, function(data){
+          // console.log(data, "from Factory, back into Controller");
+          $scope.users = data; // $scope.users makes 'users' object available to be used in the html with ng-repeat. This also gets updated anytime a new user is added.
         })
 
   }
-  getJobsDetail(id);
+  getUsersDetail(id);
 });
