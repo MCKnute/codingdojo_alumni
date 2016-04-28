@@ -1,0 +1,61 @@
+<div ng-include="'partials/navbar/dashboard-nav.html'"></div>
+
+    <div class="dashboard-div">
+
+<!-- ////////////////////EDIT BELOW THIS LINE //////////////////////////////-->
+
+
+      <div class="container">
+        <h1 class="text-center">Jobs</h1>
+         
+        <div class="row text-center">
+          <a href="#/dashboard/jobs/new" class="btn btn-success btn-lg">+ Add New Job Listing</a>
+
+          
+        </div>
+      </div>
+       
+
+       <table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Company</th>
+      <td>{{ jobs.company }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Title</th>
+      <td>{{ jobs.title }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Location</th>
+      <td>{{jobs.location }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Description</th>
+      <td>{{ jobs.description }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Apply</th>
+      <td><a href=""><button class="btn btn-success pull-left">Apply</button></a></td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+<!-- ////////////////////EDIT ABOVE THIS LINE //////////////////////////////-->
+
+      <hr />
+
+      <footer>
+        <p class="text-center">&copy; Mike Bogosian, Pete Kang, Mollie Knute, and Rich Whybrew</p>
+      </footer>
+    </div>
+</div>
