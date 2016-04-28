@@ -6,70 +6,90 @@
 <!-- ////////////////////EDIT BELOW THIS LINE //////////////////////////////-->
 
 
-      <div class="container">
-        <h1 class="text-center">Create Profile</h1>
-	<form class="form-horizontal" role="form" id="form" >
-		<div class="form-group">
-		    <label class="control-label col-sm-2" for="name">First Name: </label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control"  placeholder="enter first name" ng-model='newUser.firstName' >
-			</div>
-		</div>
-		<div class="form-group">
-		    <label class="control-label col-sm-2" for="name">Last Name:  </label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control"  placeholder="enter last name" ng-model='newUser.lastName' >
-			</div>
-		</div>
-		<div class="form-group">
-		    <label class="control-label col-sm-2" for="name">Current Job: </label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control"  placeholder="enter current job" ng-model='newUser.currentJob' >
-			</div>
-		</div>
-		<div class="form-group">
-		    <label class="control-label col-sm-2" for="name">Summary: </label>
-		    <div class="col-sm-10">
-		    <textarea class="form-control" ng-model='newUser.summary'></textarea>
-		      
-			</div>
-		</div>
-		<div class="form-group">
-		    <label class="control-label col-sm-2" for="name">Contact: </label>
-		    <div class="col-sm-10">
+<div class="container">
 
-		      <input type="text" class="form-control"  placeholder="primary contact email -- will be your login email" ng-model='newUser.email' >
+<!-- /////////////  REGISTER  /////////////// -->
+	<div class="row">
+	    <h1 class="text-center">Create Profile</h1>
+		<form class="form-horizontal" role="form" id="form" >
+			<div class="form-group">
+			    <label class="control-label col-sm-2" for="name">First Name: </label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control"  placeholder="enter first name" ng-model='newUser.firstName' >
+				</div>
 			</div>
+			<div class="form-group">
+			    <label class="control-label col-sm-2" for="name">Last Name:  </label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control"  placeholder="enter last name" ng-model='newUser.lastName' >
+				</div>
 			</div>
-		<div class="form-group">
-		    <label class="control-label col-sm-2" for="name">Password: </label>
-		    <div class="col-sm-10">
-		      <input type="password" class="form-control"  placeholder="password" ng-model='newUser.password' >
+			<div class="form-group">
+			    <label class="control-label col-sm-2" for="name">Current Job: </label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control"  placeholder="enter current job" ng-model='newUser.currentJob' >
+				</div>
 			</div>
-		</div>
-		<!-- <div class="form-group">
-		    <label class="control-label col-sm-2" for="name">Primary Stack: </label>
-		    <div class="col-sm-10">
-		    	<select class="form-control" ng-model='newUser.primaryStack'  ng-options='stack.name as stack.name for stack in stacks'>
-				    	</select>
+			<div class="form-group">
+			    <label class="control-label col-sm-2" for="name">Summary: </label>
+			    <div class="col-sm-10">
+			    <textarea class="form-control" ng-model='newUser.summary'></textarea>
+			      
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-		    <label class="control-label col-sm-2" for="name">Dojo Location: </label>
-		    <div class="col-sm-10">
-		    	<select class="form-control" ng-model='newUser.primaryLocation'  ng-options='location.name as location.name for location in locations'>
-				    	</select>
-			</div>
-		</div> -->
+			<div class="form-group">
+			    <label class="control-label col-sm-2" for="name">Contact: </label>
+			    <div class="col-sm-10">
 
-						
-		<div class="form-group"> 
-		    <div class="col-sm-offset-2 col-sm-10">
-		      <button type="submit" class="btn btn-success pull-right" ng-click="register(newUser)">Create Profile</button>
-		    </div>
-		</div>
-	</form>
+			      <input type="text" class="form-control"  placeholder="primary contact email -- will be your login email" ng-model='newUser.email' >
+				</div>
+			</div>
+			<div class="form-group">
+			    <label class="control-label col-sm-2" for="name">Password: </label>
+			    <div class="col-sm-10">
+			      <input type="password" class="form-control"  placeholder="password" ng-model='newUser.password' >
+				</div>
+			</div>
+			<div class="form-group">
+			    <label class="control-label col-sm-2" for="name">LinkedIn: </label>
+			    <div class="col-sm-10">
 
+			      <input type="text" class="form-control"  placeholder="Your profile name (i.e. - www.linkedin.com/in/(_profile_name_)" ng-model='newUser.linkedin' >
+				</div>
+			</div>
+			<div class="form-group">
+			    <label class="control-label col-sm-2" for="name">Github Username: </label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control"  placeholder="github username" ng-model='newUser.github' >
+				</div>
+			</div>
+			<div class="form-group"> 
+			    <div class="col-sm-offset-2 col-sm-10">
+			      <button type="submit" class="btn btn-success pull-right" ng-click="register(newUser)">Create Profile</button>
+			    </div>
+			</div>
+		</form>
+	</div>
+<!-- /////////////  END REGISTER  /////////////// -->
+
+<!-- /////////////  LOGIN  /////////////// -->
+	 <div class="row">
+
+		<h1 style="padding-top: 2em" class="text-center">Login via Username</h1>
+	  	<h4>Please enter a username to continue</h4>
+
+	  	<form>
+	  	<label> Email
+	    	<input type="text" ng-model="user.email">
+	    </label>
+	    <label> Password
+	    	<input type="password" ng-model="user.password">
+	    </label>
+	    	<button class="btn btn-lg btn-default" ng-click='login(user)'>GO!</button>
+	  	</form>
+
+	  </div>
+<!-- /////////////  END LOGIN  /////////////// -->
 
  <!-- ////////////////////EDIT ABOVE THIS LINE //////////////////////////////-->
 
