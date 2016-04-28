@@ -1,7 +1,14 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
+html {
+  min-height: 100%;
+}
 body {
   padding-top: 50px;
-  padding-bottom: 20px;
+  /*padding-bottom: 20px;*/
+}
+.bg-black {
+  min-height: 100%;
+  background-color: black;
 }
 
 .navbar-inverse-noborder {
@@ -11,6 +18,7 @@ body {
 .jumbotron-black {
 	background-color: #222;
 	color: white;
+  margin-bottom: 0;
 }
 .jumbotron-white {
 	background-color: white;
@@ -38,6 +46,13 @@ body {
 
 .container {
   max-width: 100%;
+}
+.container-inverse {
+  width: 100%;
+  color: white;
+  background-color: #222;
+  margin: 0;
+  padding: 2em 5em 1em;
 }
 
 @media (min-width: 1px) {
