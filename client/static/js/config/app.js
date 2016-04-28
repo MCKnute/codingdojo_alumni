@@ -5,6 +5,10 @@ alumniApp.config(function ($routeProvider) {
     .when('/',{
         templateUrl: '../partials/landing.html'
     })
+    // .when('/signup', {
+    //     templateUrl: "./partials/signup.html",
+    //     controller: "profileController"
+    // })
     .when('/login', {
         templateUrl: "../partials/loginTest.html",
         controller: "loginController"
@@ -27,7 +31,8 @@ alumniApp.config(function ($routeProvider) {
         templateUrl: '../partials/messages.html'
     })
     .when('/dashboard/alumni',{
-        templateUrl: '../partials/alumni.html'
+        templateUrl: '../partials/alumni.html',
+        controller: "alumniListController"
     })
     .when('/dashboard/users', {
        templateUrl: "../partials/userprofilestest.html",
@@ -35,7 +40,7 @@ alumniApp.config(function ($routeProvider) {
     })
     .when('/dashboard/jobs',{
         templateUrl: '../partials/jobs.html',
-        controller: "jobListController"
+        controller: "jobController"
     })
     .when('/dashboard/jobs/new', {
        templateUrl: "../partials/addjobtest.html",
@@ -43,7 +48,7 @@ alumniApp.config(function ($routeProvider) {
     })
     .when('/dashboard/jobs/detail/:id', {
        templateUrl: "../partials/jobDetail.html",
-       controller: "jobDetailController"
+       controller: "jobController"
     })
     .when('/dashboard/events',{
         templateUrl: '../partials/events.html'

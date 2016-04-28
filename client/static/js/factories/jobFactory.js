@@ -37,5 +37,14 @@ alumniApp.factory('jobFactory', function($http) {
         callback();
       })
   } 
+
+  // factory.createJob = function(data, callback) {
+  //     console.log(data);
+  //     $http.post('/job' + id, data).then(function(response){
+          
+
+  //       callback();
+  //     })
+  // } 
   return factory;
 });

@@ -1,4 +1,4 @@
-alumniApp.controller('jobController', function(jobFactory, $scope, $location){
+alumniApp.controller('jobController', function(jobFactory, $scope, $location, $routeParams){
 
   $scope.newJob = {};
   $scope.stacks = [];
@@ -27,12 +27,27 @@ alumniApp.controller('jobController', function(jobFactory, $scope, $location){
   getStacks();
 
   $scope.addJob = function(newJob){
+
     console.log(newJob);
-   // this is form data getting passed through from HTML View
+
     jobFactory.createJob(newJob,function(){ 
       $scope.newJob = {};    // sets input fields to clear.
        $locatidon.path('#/dashboard/jobs');
       getJobs();              
     });
   }
+
+  var id = $routeParams.id
+
+  console.log(id, "coming from the controller")
+
+  function getJobsDetail(inputId){
+
+      jobFactory.getJobsDetail(inputId, function(data){
+          console.log(data, "from Factory, back into Controller");
+          $scope.jobs = data; // $scope.users makes 'users' object available to be used in the html with ng-repeat. This also gets updated anytime a new user is added.
+        })
+
+  }
+  getJobsDetail(id);
 });
