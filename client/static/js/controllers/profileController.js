@@ -63,12 +63,20 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
        // this is form data getting passed through from HTML View
         userFactory.createUser(newUser,function(){ 
           $scope.newUser = {};    // sets input fields to clear.
-           $location.path('/users');
+           $location.path('/signup');
           getUsers();              
-        });
-
+        })
       }
-  });
+
+  $scope.updateUser = function(changeUser){
+      console.log(changeUser);
+       // this is form data getting passed through from HTML View
+        userFactory.createUser(changeUser,function(){ 
+          $scope.changeUser = {};    // sets input fields to clear.
+          $location.path('/dashboard/my-profile');
+          getUsers();              
+        })
+      }
 
   // var id = $routeParams.id
 
