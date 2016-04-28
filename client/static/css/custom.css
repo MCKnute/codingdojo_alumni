@@ -3,3 +3,55 @@ body {
   padding-top: 50px;
   padding-bottom: 20px;
 }
+
+.navbar-inverse-noborder {
+	border-color: #222;
+}
+
+.jumbotron-black {
+	background-color: #222;
+	color: white;
+}
+.jumbotron-white {
+	background-color: white;
+	color: black;
+}
+.navbar {
+  display: block;
+  text-align: center;
+}
+.navbar-brand {
+  display: inline-block;
+  float: none;
+}
+.navbar-toggle {
+  position: absolute;
+  float: left;
+  margin-left: 15px;
+}
+.navmenu {
+  padding-top: 50px;
+}
+.navmenu-brand {
+  color: white;
+}
+
+.container {
+  max-width: 100%;
+}
+
+@media (min-width: 1px) {
+  .navbar-toggle {
+    display: block !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .dashboard-div {
+    padding: 0 0 0 300px;
+  }
+  .navmenu {
+    padding-top: 0;
+  }
+
+}

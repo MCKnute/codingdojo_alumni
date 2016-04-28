@@ -1,4 +1,5 @@
-<html lang="en">
+<!DOCTYPE html>
+<html ng-app="alumniApp">
 <head>
   <title>CodingDojo Alumni</title>
 
@@ -7,68 +8,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/jasny-bootstrap.css">
   <link rel="stylesheet" type="text/css" href="/static/css/custom.css">
 
   <meta name="author" content="Mike Bogosian, Peter Kang, Mollie Knute, Rich Whybrew">
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.min.js"></script>
-  <script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-  	var alumniApp = angular.module('alumniApp', []);
+  <!-- ROUTES -->
+  <script src="static/js/config/app.js"></script>
+  <!-- END ROUTES -->
 
-////CONTROLLERS /////////
+<!-- controllers -->  
+  <script type="text/javascript" src="static/js/controllers/loginController.js"></script>
+  <script type="text/javascript" src="static/js/controllers/profileController.js"></script>
+  <script type="text/javascript" src="static/js/controllers/jobController.js"></script>
+  <script type="text/javascript" src="static/js/controllers/jobListController.js"></script>
 
-  alumniApp.controller('NinjasController', function($scope) {
+  <script type="text/javascript" src="static/js/controllers/jobDetailController.js"></script>
+  <!-- <script src="./js/controllers/updateController.js"></script> -->
+  <script type="text/javascript" src="static/js/controllers/eventController.js"></script>
+  <script type="text/javascript" src="static/js/controllers/signupController.js"></script>
 
-  });
-
-  </script>
+<!-- factories -->
+  <script type="text/javascript" src="static/js/factories/loginFactory.js"></script>
+  <script type="text/javascript" src="static/js/factories/userFactory.js"></script>
+  <script type="text/javascript" src="static/js/factories/jobFactory.js"></script>
+  <script type="text/javascript" src="static/js/factories/eventFactory.js"></script>
 </head>
-<body ng-app="alumniApp">
-
-      <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">CodingDojo On Tap</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </nav>
-
-  <div class="container">
-
+<body>
   <div ng-view>
     this is the ng-view div. Put stuff here!
   </div>
 
-   <hr>
-
-      <footer>
-        <p class="text-center">&copy; Mike Bogosian, Pete Kang, Mollie Knute, and Rich Whybrew</p>
-      </footer>
-    </div> <!-- /container -->
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script>window.jQuery || document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"><\/script>')</script>
     <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/jasny-bootstrap.min.js"></script>
+    <script src="/static/js/custom.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/static/js/ie10-viewport-bug-workaround.js"></script>
 </body>
