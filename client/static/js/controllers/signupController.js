@@ -15,8 +15,8 @@ alumniApp.controller('signupController', function(userFactory, loginFactory, job
   }
 
   $scope.login = function(data){
-      console.log('___in loginController___');
-      console.log('rich test');
+      // console.log('___in loginController___');
+      // console.log('rich test');
     $scope.flash = {};
     loginFactory.login(data, function(res){
       console.log('__bout to go to your dashboard__',res);

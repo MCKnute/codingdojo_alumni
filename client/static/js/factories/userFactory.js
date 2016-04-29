@@ -74,6 +74,7 @@ alumniApp.factory('userFactory', function($http) {
       $http.get('/userdetail/' + id).then(function(output){
           
           users = output.data;
+
           // console.log(users, "in Factory, from server side Controller");
           callback(users);
       })

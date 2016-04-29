@@ -26,7 +26,10 @@ return {
     },
 
     userUpdate: function(req, res) {
+<<<<<<< HEAD
       console.log("");
+=======
+>>>>>>> b2ac2cae3d36f07b1f06d79c456ead3ab2c13f5c
        User.findOneAndUpdate({_id: req.body.user_id}, {$set: req.body}, function(err, user){
         if(err){ 
             // console.log(err, "this didn't find anybody");
