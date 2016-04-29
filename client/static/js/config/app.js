@@ -31,7 +31,8 @@ alumniApp.config(function ($routeProvider) {
        controller: "profileController"
     })
     .when('/dashboard/messages',{
-        templateUrl: '../partials/messages.html'
+        templateUrl: '../partials/messages.html',
+        controller: "alumniController"
     })
     .when('/dashboard/alumni',{
         templateUrl: '../partials/alumni.html',

@@ -6,12 +6,13 @@
 
 
       <div class="container">
-        <h1 class="text-center">Jobs</h1>
+        <h1 class="text-center">Job Hunter</h1>
          
-        <div class="text-center form-group">
-          <a href="#/dashboard/jobs/new" class="btn btn-success btn-lg">+ Add New Job Listing</a><br /><br />
+        <div class="text-center form-group col-md-6 col-md-offset-3">
 
-              <input type="text" ng-model='filter_name' placeholder="Filter by Company Name" class="input-lg col-md-6 col-md-offset-3" />
+          <input type="text" ng-model='filter_name' placeholder="Filter by Company name, position, location, and more" class="input-lg form-controls btn-block" /><br />
+
+          <a href="#/dashboard/jobs/new" class="btn btn-success btn-block">+ Add New Job Listing</a>
         </div>
       
         <table class="table table-hover" id="layout" >
@@ -26,8 +27,8 @@
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody ng-repeat="job in jobs | filter: filter_name" data-link="row" class="rowlink">
-            <tr>
+          <tbody>
+            <tr ng-repeat="job in jobs | filter: filter_name" data-link="row" class="rowlink">
               <td class=""><a href="#/dashboard/jobs/detail/{{job._id}}"><strong>{{ job.company }}</strong></a></td>
               <td class="">{{ job.title }}</td>
               <td class="">{{ job.location }}</td>
