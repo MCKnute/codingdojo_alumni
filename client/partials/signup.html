@@ -2,8 +2,6 @@
 
 
 <!-- ////////////////////EDIT BELOW THIS LINE //////////////////////////////-->
-<!-- <h1 class="text-center" style="background-color: #222; color: white; margin-top: 0; padding-top: 1em; padding-bottom: 1em">Access CodingDojo on Tap</h1>
-	<div class="container"> -->
 
 <div class="container">
   	<div class="row">
@@ -12,60 +10,60 @@
 
   		<!-- <a type="button" class="btn btn-default btn-block visible-xs" href="#/signup/#login-headline" target="_self">Login In</a> -->
 	
-		<div class="col-md-8 col-xs-12" style="display: inline-block">
+		<div class="col-md-7 col-xs-12" style="display: inline-block; border: 1px solid #ccc;">
 			<h2 class="text-center">Register</h2>
 		<form class="form-horizontal" role="form" id="form" >
 			<div class="form-group">
-			    <label class="control-label col-md-2" for="name">First Name: </label>
-			    <div class="col-md-9">
+			    <label class="control-label col-md-3" for="name">First Name: </label>
+			    <div class="col-md-8">
 			      <input type="text" class="form-control"  placeholder="First name" ng-model='newUser.firstName' required />
 				</div>
 
 			</div>
 			<div class="form-group">
-			    <label class="control-label col-md-2" for="name">Last Name:  </label>
-			    <div class="col-md-9">
+			    <label class="control-label col-md-3" for="name">Last Name:  </label>
+			    <div class="col-md-8">
 			      <input type="text" class="form-control"  placeholder="Last name" ng-model='newUser.lastName' required />
 				</div>
 			</div>
 			<div class="form-group">
-			    <label class="control-label col-md-2" for="name">Current Job: </label>
-			    <div class="col-md-9">
+			    <label class="control-label col-md-3" for="name">Current Job: </label>
+			    <div class="col-md-8">
 			      <input type="text" class="form-control"  placeholder="Current job" ng-model='newUser.currentJob' required />
 				</div>
 			</div>
 			<div class="form-group">
-			    <label class="control-label col-md-2" for="name">Summary: </label>
-			    <div class="col-md-9">
+			    <label class="control-label col-md-3" for="name">Summary: </label>
+			    <div class="col-md-8">
 			    <textarea class="form-control" ng-model='newUser.summary' placeholder="Summary of your coding experience and skills" required /></textarea>
 			      
 				</div>
 			</div>
 
 			<div class="form-group">
-			    <label class="control-label col-md-2" for="name">LinkedIn: </label>
-			    <div class="col-md-9">
+			    <label class="control-label col-md-3" for="name">LinkedIn: </label>
+			    <div class="col-md-8">
 			      <input type="text" class="form-control"  placeholder="Your profile name (i.e. - www.linkedin.com/in/(_profile_name_)" ng-model='newUser.linkedin' required />
 				</div>
 			</div>
 			<div class="form-group">
-			    <label class="control-label col-md-2" for="name">Github Username: </label>
-			    <div class="col-md-9">
+			    <label class="control-label col-md-3" for="name">Github Username: </label>
+			    <div class="col-md-8">
 			      <input type="text" class="form-control"  placeholder="github username" ng-model='newUser.github' required />
 				</div>
 			</div>
 
 
 			<div class="form-group"> 
-			    <label class="control-label col-md-2" for="name">Email: </label>
-			    <div class="col-md-9">
+			    <label class="control-label col-md-3" for="name">Email: </label>
+			    <div class="col-md-8">
 			      <input type="email" class="form-control" placeholder="Primary contact email (this will be your login email)" ng-model='newUser.email' required />
 				</div>
 			</div>
 
 			<div class="form-group">
-			    <label class="control-label col-md-2" for="name">Password: </label>
-			    <div class="col-md-9">
+			    <label class="control-label col-md-3" for="name">Password: </label>
+			    <div class="col-md-8">
 			      <input type="password" class="form-control"  placeholder="Password" ng-model='newUser.password' required min-length="6" />
 				</div>
 
@@ -87,7 +85,7 @@
 			</div> -->
 							
 			<div class="form-group"> 
-			      <div class="col-md-9 col-md-offset-2">
+			      <div class="col-md-10 col-md-offset-2">
 			      	<button type="submit" class="btn btn-success btn-lg btn-block" ng-click="register(newUser)">Create Alumni Profile</button>
 			      </div>
 			</div>
@@ -96,7 +94,7 @@
 <!-- //////// END Registration //////// -->
 <!-- //////// Login //////// -->
 
-		<div class="col-md-4 col-xs-12" style="display: inline-block; border: 1px solid #ccc">
+		<div class="col-md-4 col-md-offset-1 col-xs-12" style="display: inline-block; border: 1px solid #ccc;">
 			<h2 class="text-center" name="login-headline">Log In</h2>
 
 			<form class="form-horizontal" role="form" id="form" >
@@ -115,7 +113,7 @@
 				</div>
 				<div class="form-group">
 					<div class="col-md-12">
-						<button type="submit" class="btn btn-default btn-lg btn-block" ng-click="login(User)">Log In</button>
+						<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="login(User)">Log In</button>
 					</div>
 				</div>
 			</form>
