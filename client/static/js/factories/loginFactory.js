@@ -1,4 +1,5 @@
 alumniApp.factory('loginFactory', function($http, $location) {
+  console.log('in login fac');
   var factory = {};
   var currentUser = null;
   console.log(currentUser);
@@ -21,6 +22,7 @@ alumniApp.factory('loginFactory', function($http, $location) {
   //   })
   // }
   factory.login = function(data, successHandler, failHandler){
+    console.log(data);
     $http.post('/login', data).then(function(res){
       console.log(res.data);
       currentUser = res.data;
