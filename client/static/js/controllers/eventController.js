@@ -1,4 +1,15 @@
-alumniApp.controller('eventController', function(eventFactory, $scope){
+alumniApp.controller('eventController', function(loginFactory, eventFactory, $scope){
+  // ______ currentUser _______//
+  function getCurrentUser(){
+    loginFactory.getUser(function(data){
+      $scope.currentUser = data;
+      // console.log($scope.currentUser)
+    })
+  }
+
+  getCurrentUser();
+// ______ END currentUser _______//
+
   function getEvents(){
 
       eventFactory.getEvents(function(data){

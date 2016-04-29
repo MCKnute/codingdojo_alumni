@@ -1,7 +1,18 @@
-alumniApp.controller('jobController', function(jobFactory, $scope, $location, $routeParams){
+alumniApp.controller('jobController', function(jobFactory, $scope, $location, $routeParams, loginFactory){
 
   $scope.newJob = {};
   $scope.stacks = [];
+
+// ______ currentUser _______//
+  function getCurrentUser(){
+    loginFactory.getUser(function(data){
+      $scope.currentUser = data;
+      // console.log($scope.currentUser)
+    })
+  }
+
+  getCurrentUser();
+// ______ END currentUser _______//
 
   function getJobs(){
 
