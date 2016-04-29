@@ -1,6 +1,11 @@
 alumniApp.factory('userFactory', function($http) {
   var factory = {};
   var currentUser = null;
+  var jobs;
+  var users;
+  var stacks;
+  var update;
+  var locations;
   // {
   //   firstName = "Mike",
   //   lastName = "Bogosian"

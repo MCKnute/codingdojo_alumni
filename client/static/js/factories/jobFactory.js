@@ -1,5 +1,7 @@
 alumniApp.factory('jobFactory', function($http) {
   var factory = {};
+  var jobs;
+  var stacks;
 
   factory.getJobsDetail = function(id,callback){
     // console.log(id);
