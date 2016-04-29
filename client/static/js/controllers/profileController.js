@@ -1,8 +1,9 @@
 alumniApp.controller('profileController', function(userFactory, loginFactory, jobFactory, $scope, $location, $routeParams){
   $scope.newJob = {};
-  $scope.newUser = {};
+  $scope.changeUser = {};
   $scope.stacks = [];
   $scope.locations = [];
+
 
   function getUsers(){
 
@@ -15,8 +16,9 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
 
   function getCurrentUser(){
     loginFactory.getUser(function(data){
+      console.log(data);
       $scope.currentUser = data;
-      // console.log($scope.currentUser)
+      console.log($scope.currentUser)
     })
   }
 
@@ -31,20 +33,20 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
         })
 
   }
-  // getJobs();
+  getJobs();
 
   function getStacks(){
 
       jobFactory.getStacks(function(data){
-          // console.log(data, "this is coming from my factory var customers, it's my hard coded object");
+          console.log(data, "this is coming from my factory var customers, it's my hard coded object");
           $scope.stacks = data; 
-          console.log($scope.stacks[0].user)
-          $scope.newUser.primaryStack = $scope.stacks[0].user
+          console.log($scope.stacks[0].name)
+          $scope.changeUser.primaryStack = $scope.stacks[0].name
          
         })
       
   }
-  // getStacks();
+  getStacks();
 
   function getLocations(){
 
@@ -52,11 +54,11 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
         $scope.locations = data; 
         console.log($scope.locations)
         console.log($scope.locations[0].name)
-        console.log($scope.newUser)
-        $scope.newUser.primaryLocation = $scope.locations[0].name
+
+        $scope.changeUser.primaryLocation = $scope.locations[0].name
       })
   }
-  // getLocations();
+  getLocations();
 
   $scope.addUser = function(newUser){
       console.log(newUser);
@@ -69,9 +71,16 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
       }
 
   $scope.updateUser = function(changeUser){
+
+
+      changeUser.user_id = $scope.currentUser._id
       console.log(changeUser);
+   
        // this is form data getting passed through from HTML View
-        userFactory.createUser(changeUser,function(){ 
+        userFactory.updateUser(changeUser,function(){
+
+
+
           $scope.changeUser = {};    // sets input fields to clear.
           $location.path('/dashboard/my-profile');
           getUsers();              

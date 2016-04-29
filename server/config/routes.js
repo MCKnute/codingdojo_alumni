@@ -18,6 +18,11 @@ module.exports = function(app, passport) {
 	  user.create(req, res);
 	});
 
+	app.post('/userUpdate', function(req, res) {
+		console.log(req.params.id)
+	  user.userUpdate(req, res);
+	});
+
 	app.get('/user', function(req, res) {
 	  user.findAll(req, res);
 	});
@@ -25,6 +30,35 @@ module.exports = function(app, passport) {
 	app.get('/userdetail/:id' , function(req, res) {
 		console.log(req.params.id)
 	  user.findId(req, res);
+
+	});
+
+	app.get('/jobdetail/:id' , function(req, res) {
+		console.log(req.params.id)
+	  job.findId(req, res);
+
+	});
+	app.get('/job', function(req, res) {
+	  job.find(req, res);
+
+	});
+
+	app.post('/job', function(req, res){
+    job.create(req, res);
+   });
+
+	app.get('/stacks', function(req, res) {
+	  job.findStack(req, res);
+
+	});
+
+	app.get('/locations', function(req, res) {
+	  user.findLocation(req, res);
+
+	});
+
+	app.get('/status', function(req, res) {
+	  job.findStatus(req, res);
 
 	});
 

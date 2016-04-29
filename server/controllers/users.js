@@ -24,28 +24,19 @@ return {
          }
         })
     },
-    // findId: function(req, res) {
-    //     console.log(req.body._id, "this is in the controller")
-    //    User.findOne({_id: req.body._id}, function(err, user){
-    //     if(err){ 
-    //         console.log(err);
-    //     }   
-    //     else{
-    //   //is there a user?
-    //         if(user){
-    //             console.log(user);
-    //         res.json(user);
-    //         } 
-    //             else{
-    //             //otherwise make a user:
-    //             User.create({name: req.body.name}, function(err, newUser){
-    //                 if(err) { console.log(err); }
-    //                 res.json(newUser);
-    //             })
-    //             }
-    //      }
-    //     })
-    // },
+
+    userUpdate: function(req, res) {
+       User.findOneAndUpdate({_id: req.body.user_id}, {$set: req.body}, function(err, user){
+        if(err){ 
+            // console.log(err, "this didn't find anybody");
+        }   
+        else{
+            // console.log(user, "RETURN FROM DATABASE")
+
+            res.json(user);
+         }
+        })
+    },
 
     findId: function(req, res) {
       //need to add user id to this so we can add personal messaging  before searching for job detail. 
@@ -64,27 +55,7 @@ return {
                
         })
     },
-    // update: function(req, res){ // have not specified what we're going to edit for this controller yet.
-    //     User.update({_id: req.body._id}, {$inc: {quant: - req.body.quantity}}, function(err, results){
-    //           console.log(results, "This is after the UPDATE")
-    //           if(err){
-    //             console.log(err, "this is an error");
 
-    //           } else{
-    //               console.log(results);
-    //               User.create(req.body, function(err, user) {
-    //           // console.log(order, "This is coming from my database")
-    //               if(err) {
-    //               console.log(err);
-    //               res.json({errors: err.errors});
-    //               } else{
-    //               res.json(true);
-    //               }
-    //             })
-    //           }
-    //           })
-    //     }
-    // },
     findLocation: function(req, res) {
        Location.find({}, function(err, results){
         if(err){ 
