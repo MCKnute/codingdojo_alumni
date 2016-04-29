@@ -1,6 +1,11 @@
 alumniApp.factory('userFactory', function($http) {
   var factory = {};
   var currentUser = null;
+  var jobs;
+  var users;
+  var stacks;
+  var update;
+  var locations;
   // {
   //   firstName = "Mike",
   //   lastName = "Bogosian"
@@ -61,22 +66,21 @@ alumniApp.factory('userFactory', function($http) {
   }
 
   factory.updateUser = function(data, callback) {
-      // console.log(data);
+      console.log("____userFactory___ this is the data: ",data);
       $http.post('/userUpdate', data).then(function(response){
-          update = response.data
-          console.log(update, "returned databse updated object");
-
+        // var update = response.data;
+          console.log("_____goign to post now____", response);
         callback();
-      })
+      });
   }
 
   factory.getUsersDetail = function(id,callback){
-    // console.log(id);
+    console.log("____userFactory function getUsersDetail___ ... this is the id: ",id);
       $http.get('/userdetail/' + id).then(function(output){
           
           users = output.data;
 
-          // console.log(users, "in Factory, from server side Controller");
+          console.log("___ userFactory function getUsersDetail___ ... users: ", users);
           callback(users);
       })
   } 

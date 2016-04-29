@@ -56,11 +56,10 @@ alumniApp.controller('alumniController', function(jobFactory, loginFactory, user
     });
   }
 
-    var id = $routeParams.id
+    var rpId = $routeParams.id;
 
-    // console.log(id, "coming from the controller")
-
-    function getUsersDetail(inputId){
+  function getUsersDetail(inputId){
+    console.log("___coming from the alumni controller__", rpId);
 
     userFactory.getUsersDetail(inputId, function(data){
           // console.log(data, "from Factory, back into Controller");
@@ -68,5 +67,5 @@ alumniApp.controller('alumniController', function(jobFactory, loginFactory, user
         })
 
   }
-  getUsersDetail(id);
+  getUsersDetail(rpId);
 });

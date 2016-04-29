@@ -18,6 +18,8 @@
               <th>Name</th>
               <th>Current Job</th>
               <th>Job Status</th>
+              <th>Primary Stack</th>
+              <th>Dojo Location</th>
               <th>Summary</th>
               <th>Actions</th>
             </tr>
@@ -27,6 +29,8 @@
               <td><a href="#/dashboard/alumni/detail/{{user._id}}">{{ user.firstName }} {{ user.lastName }}</a></td>
               <td>{{ user.currentJob }}</td>
               <td>{{ user.status }}</td>
+              <td>{{user.primaryStack}}</td>
+              <td>{{user.primaryLocation}}</td>
               <td>{{ user.summary }}</td>
               <td class="rowlink-skip"><a href="#/dashboard/alumni/detail/{{user._id}}" class="btn btn-default btn-block">&#128270; Learn More</a></td>
 
