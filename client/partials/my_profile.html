@@ -4,26 +4,53 @@
 
 <!-- ////////////////////EDIT BELOW THIS LINE //////////////////////////////-->
 <div class="container">
-<div class="row text-center">
-  <a href="#/dashboard/my-profile/edit" class="btn btn-success btn-lg">+ Edit My Profile</a>
-  <hr>
-</div>
-
+<div class="row">
   <h1 class="text-center">{{currentUser.firstName}} {{currentUser.lastName}}'s Profile</h1>
-  <div class="row text-center">
-    <div>Username:  <span ng-bind="currentUser.email"></span></div>
-    <div>Current Job:  <span ng-bind="currentUser.currentJob"></span></div>
-    <div>Summary:  <span ng-bind="currentUser.summary"></span></div>
-    <div>
-      <p>Checkout my linkedIn and Github</p>
-      <a href="https://www.linkedin.com/in/{{currentUser.linkedin}}" target="_blank"><img src="/static/images/linkedin.png" height="30"></a>
-      <a href="https://github.com/{{currentUser.github}}" target="_blank"><img src="/static/images/github-icon.png" height="29"></a>
-    </div>
+
+
+  <div class="col-md-6 col-md-offset-3 text-center">
+    <a href="#/dashboard/my-profile/edit" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-menu glyphicon-pencil" aria-hidden="true"></span> Edit My Profile</a>
+
   </div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+
+  <div class="col-md-8 col-md-offset-2">
+  <table class="table" style="margin-top: 2em">
+    <tr>
+      <td>LinkedIn:</td>
+      <td>
+        <a href="https://www.linkedin.com/in/{{currentUser.linkedin}}" target="_blank"><img src="/static/images/linkedin.png" height="30"> https://www.linkedin.com/in/{{currentUser.linkedin}}</a>
+      </td>
+    </tr>
+    <tr>
+      <td>Github:</td>
+      <td>
+      <a href="https://github.com/{{currentUser.github}}" target="_blank"><img src="/static/images/github-icon.png" height="29"> https://github.com/{{currentUser.github}}</a>
+      </td>
+    </tr>
+    <tr>
+      <td>Username:</td>
+      <td><span ng-bind="currentUser.email"></span></td>
+    </tr>
+    <tr>
+    <tr>
+      <td>Current Job:</td>
+      <td><span ng-bind="currentUser.currentJob"></span></td>
+    </tr>
+    <tr>
+      <td>Summary:</td>
+      <td><span ng-bind="currentUser.summary"></span></td>
+    </tr>
+  </table>
+</div>
+</div>
 
 <!-- ////////////////////EDIT ABOVE THIS LINE //////////////////////////////-->
 <hr />
-      <footer>
+      <footer class="col-md-12">
         <p class="text-center">&copy; Mike Bogosian, Pete Kang, Mollie Knute, and Rich Whybrew</p>
       </footer>
     </div>
