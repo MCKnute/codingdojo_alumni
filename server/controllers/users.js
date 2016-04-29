@@ -26,12 +26,13 @@ return {
     },
 
     userUpdate: function(req, res) {
-       User.findOneAndUpdate({_id: req.body.user_id}, {$set: req.body}, function(err, user){
+
+      console.log("____users.js function userUpdates___", req.body);
+       User.findOneAndUpdate({_id: req.body._id}, {$set: req.body}, function(err, user){
         if(err){ 
-            // console.log(err, "this didn't find anybody");
-        }   
-        else{
-            // console.log(user, "RETURN FROM DATABASE")
+            console.log("this didn't find anybody", err);
+        } else {
+            console.log("____users.js function userUpdates___RETURN FROM DATABASE user: ", user);
 
             res.json(user);
          }
@@ -41,18 +42,16 @@ return {
     findId: function(req, res) {
       //need to add user id to this so we can add personal messaging  before searching for job detail. 
 
-      console.log(req.params.id, "this is in server side controller")
+      console.log("___ server... users.js___ req.params", req.params);
 
        User.findOne({_id: req.params.id}, function(err, user){
         if(err){ 
             console.log(err);
         }   
         else{
-
-              console.log(user);
+            console.log(user);
             res.json(user);
             } 
-               
         })
     },
 
@@ -83,7 +82,6 @@ return {
         if(err){
             console.log(err);
             res.json({errors: err.errors});
-
         }
         
         else res.json(true);

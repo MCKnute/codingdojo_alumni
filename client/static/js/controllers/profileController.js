@@ -16,9 +16,9 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
 
   function getCurrentUser(){
     loginFactory.getUser(function(data){
-      console.log(data);
+      console.log("__profileController, getCurrentUser__ data: ",data);
       $scope.currentUser = data;
-      console.log($scope.currentUser)
+      console.log("__profileController, getCurrentUser__ $scope.currentUser: ", $scope.currentUser);
     })
   }
 
@@ -46,19 +46,19 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
         })
       
   }
-  getStacks();
+  // getStacks();
 
   function getLocations(){
 
     userFactory.getLocations(function(data){
         $scope.locations = data; 
-        console.log($scope.locations)
-        console.log($scope.locations[0].name)
+        console.log($scope.locations);
+        console.log($scope.locations[0].name);
 
         $scope.changeUser.primaryLocation = $scope.locations[0].name
       })
   }
-  getLocations();
+  // getLocations();
 
   $scope.addUser = function(newUser){
       console.log(newUser);
@@ -71,51 +71,13 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
       }
 
   $scope.updateUser = function(changeUser){
-
-
-      changeUser.user_id = $scope.currentUser._id
-      console.log(changeUser);
-   
-       // this is form data getting passed through from HTML View
+    changeUser._id = $scope.currentUser._id;
+      console.log("_ profileController, updating user now_", changeUser._id);
+       // this is from data getting passed through from HTML View
         userFactory.updateUser(changeUser,function(){
-
-
-
           $scope.changeUser = {};    // sets input fields to clear.
           $location.path('/dashboard/my-profile');
-          getUsers();              
+          getUsers();
         })
       }
 });
-  // var id = $routeParams.id
-
-  // console.log(id, "coming from the controller")
-
-  // function getJobsDetail(inputId){
-
-  //     jobFactory.getJobsDetail(inputId, function(data){
-  //         console.log(data, "from Factory, back into Controller");
-  //         $scope.jobs = data; // $scope.users makes 'users' object available to be used in the html with ng-repeat. This also gets updated anytime a new user is added.
-  //       })
-
-  // }
-  // getJobsDetail(id);
-
-      // $scope.login = function(user){
-      //       loginFactory.login(user, function(){
-
-      //       loginFactory.getUser(function(user){
-      //       console.log(user);
-      //       // $location.path('/userUpdate');
-
-      //       })
-
-      //    })
-      //   }
-
-      // loginFactory.getUser(function(user){
-      //       // console.log(user);
-      //       $scope.currentUser = user;
-      //   })
-
-      //  console.log($scope.currentUser)
