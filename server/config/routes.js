@@ -22,6 +22,11 @@ module.exports = function(app, passport) {
 	  user.findAll(req, res);
 	});
 
+	app.post('/userUpdate', function(req, res) {
+		console.log("____ in routes /userUpdates___ this is the req.params.id: ",req.params.id);
+	  	user.userUpdate(req, res);
+	});
+
 	app.get('/userdetail/:id' , function(req, res) {
 		console.log(req.params.id)
 	  user.findId(req, res);

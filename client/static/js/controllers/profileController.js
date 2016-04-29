@@ -69,14 +69,18 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
       }
 
   $scope.updateUser = function(changeUser){
-      console.log(changeUser);
+
+    changeUser._id = $scope.currentUser._id;
+      console.log("_ profileController, updating user now_",changeUser._id);
        // this is form data getting passed through from HTML View
-        userFactory.createUser(changeUser,function(){ 
+        userFactory.updateUser(changeUser,function(){
           $scope.changeUser = {};    // sets input fields to clear.
           $location.path('/dashboard/my-profile');
           getUsers();              
         })
       }
+
+
 });
   // var id = $routeParams.id
 

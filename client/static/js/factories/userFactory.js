@@ -60,6 +60,15 @@ alumniApp.factory('userFactory', function($http) {
       })
   }
 
+  factory.updateUser = function(data, callback) {
+      console.log("____userFactory___ this is the data: ",data);
+      $http.post('/userUpdate', data).then(function(response){
+        // var update = response.data;
+          console.log("_____goign to post now____", response);
+        callback();
+      });
+  }
+
   factory.getUsersDetail = function(id,callback){
     // console.log(id);
       $http.get('/userdetail/' + id).then(function(output){
