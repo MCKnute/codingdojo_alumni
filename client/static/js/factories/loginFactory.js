@@ -2,25 +2,19 @@ alumniApp.factory('loginFactory', function($http, $location) {
   // console.log('in login fac');
   var factory = {};
   var currentUser = null;
-  // console.log(currentUser);
 
 //a method to get the user if there is one!
   factory.getUser = function(callback){
-      if(currentUser) callback(currentUser);
+      if(currentUser){
+        console.log('__loginFactory, getUser __ this is the currentUser: ');
+        callback(currentUser);
+      }
       else{
         //redirect to the root!
         $location.path('/');
       }
   }
 
-  // factory.login = function(user, callback) {
-  //   $http.post('/login', user).then(function(response){
-  //       console.log(response.data);
-  //       currentUser = response.data;
-  //       console.log(currentUser);
-  //     callback();
-  //   })
-  // }
   factory.login = function(data, successHandler, failHandler){
     // console.log(data);
     $http.post('/login', data).then(function(res){

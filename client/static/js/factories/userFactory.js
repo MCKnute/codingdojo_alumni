@@ -70,12 +70,12 @@ alumniApp.factory('userFactory', function($http) {
   }
 
   factory.getUsersDetail = function(id,callback){
-    // console.log(id);
+    console.log("____userFactory function getUsersDetail___ ... this is the id: ",id);
       $http.get('/userdetail/' + id).then(function(output){
           
           users = output.data;
 
-          // console.log(users, "in Factory, from server side Controller");
+          console.log("___ userFactory function getUsersDetail___ ... users: ", users);
           callback(users);
       })
   } 
