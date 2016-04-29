@@ -7,7 +7,7 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
   function getUsers(){
 
       userFactory.getUsers(function(data){
-          console.log(data, "this is coming from my factory var customers, it's my hard coded object");
+          // console.log(data, "this is coming from my factory var controller");
           $scope.users = data;  
         })
   }
@@ -16,12 +16,12 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
   function getCurrentUser(){
     loginFactory.getUser(function(data){
       $scope.currentUser = data;
-      console.log($scope.currentUser)
+      // console.log($scope.currentUser)
     })
   }
 
   getCurrentUser();
-  console.log($scope.currentUser);
+  // console.log($scope.currentUser);
 
   function getJobs(){
 
@@ -49,7 +49,6 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
   function getLocations(){
 
     userFactory.getLocations(function(data){
-        console.log(data, "this is coming from my factory var customers, it's my hard coded object");
         $scope.locations = data; 
         console.log($scope.locations)
         console.log($scope.locations[0].name)
@@ -64,12 +63,20 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
        // this is form data getting passed through from HTML View
         userFactory.createUser(newUser,function(){ 
           $scope.newUser = {};    // sets input fields to clear.
-           $location.path('/users');
+           $location.path('/signup');
           getUsers();              
-        });
-
+        })
       }
-  });
+
+  $scope.updateUser = function(changeUser){
+      console.log(changeUser);
+       // this is form data getting passed through from HTML View
+        userFactory.createUser(changeUser,function(){ 
+          $scope.changeUser = {};    // sets input fields to clear.
+          $location.path('/dashboard/my-profile');
+          getUsers();              
+        })
+      }
 
   // var id = $routeParams.id
 
