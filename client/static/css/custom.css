@@ -19,9 +19,16 @@ body {
 	background-color: #222;
 	color: white;
   margin-bottom: 2em;
-
+  background: url('/static/images/splash_photo_dark.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 500px;
+  padding-top: 5em;
 }
-h1, h2 {
+.jumbotron-black h1 {
+  font-size: 70px;
+}
+h1, h2, h3 {
       font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 .jumbotron-white {
