@@ -60,11 +60,22 @@ alumniApp.factory('userFactory', function($http) {
       })
   }
 
+  factory.updateUser = function(data, callback) {
+      // console.log(data);
+      $http.post('/userUpdate', data).then(function(response){
+          update = response.data
+          console.log(update, "returned databse updated object");
+
+        callback();
+      })
+  }
+
   factory.getUsersDetail = function(id,callback){
     // console.log(id);
       $http.get('/userdetail/' + id).then(function(output){
           
           users = output.data;
+
           // console.log(users, "in Factory, from server side Controller");
           callback(users);
       })

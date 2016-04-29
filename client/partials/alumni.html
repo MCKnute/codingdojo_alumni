@@ -6,28 +6,28 @@
 
 
       <div class="container">
-        <h1 class="text-center">Alumni</h1>
-          <p>View Messages Below</p>
+        <h1 class="text-center">Alumni Connection</h1>
       <div class="row">
-        <table class="table" id="layout" >
-        <input type="text" ng-model='filter_name' placeholder="  filter by company" / class="pull-right">
+        <input type="text" ng-model='filter_name' placeholder="Filter by name, job, summary, and more" class="input-lg col-md-6 col-md-offset-3 col-xs-12">
+
+        <table class="table table-hover" id="layout" >
         
           <thead>
             <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
+              <th>Name</th>
               <th>Current Job</th>
               <th>Job Status</th>
-              <th></th>
+              <th>Summary</th>
+              <th>Actions</th>
             </tr>
           </thead>
-          <tbody ng-repeat="user in users | filter: filter_name">
-            <tr>
-              <td>{{ user.firstName }}</td>
-              <td>{{ user.lastName }}</td>
+          <tbody>
+            <tr ng-repeat="user in users | filter: filter_name" data-link="row" class="rowlink">
+              <td><a href="#/dashboard/alumni/detail/{{user._id}}">{{ user.firstName }} {{ user.lastName }}</a></td>
               <td>{{ user.currentJob }}</td>
               <td>{{ user.status }}</td>
-              <td class="fontWeight"><a href="#/dashboard/alumni/detail/{{user._id}}"><button class="btn btn-success pull-right">View Profile</button></a></td>
+              <td>{{ user.summary }}</td>
+              <td class="rowlink-skip"><a href="#/dashboard/alumni/detail/{{user._id}}" class="btn btn-default btn-block">&#128270; Learn More</a></td>
 
             </tr>
           </tbody>

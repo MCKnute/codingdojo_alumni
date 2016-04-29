@@ -9,16 +9,17 @@ alumniApp.config(function ($routeProvider) {
     //     templateUrl: "./partials/signup.html",
     //     controller: "profileController"
     // })
-    .when('/login', {
-        templateUrl: "../partials/signup.html",
-        controller: "signupController"
-     })
+    // .when('/login', {
+    //     templateUrl: "../partials/signup.html",
+    //     controller: "signupController"
+    //  })
     .when('/signup', {
         templateUrl: "../partials/signup.html",
         controller: "signupController"
     })
     .when('/dashboard',{
-        templateUrl: '../partials/dashboard.html'
+        templateUrl: '../partials/dashboard.html',
+        controller: "profileController"
     })
 
     .when('/dashboard/my-profile',{
@@ -31,7 +32,8 @@ alumniApp.config(function ($routeProvider) {
        controller: "profileController"
     })
     .when('/dashboard/messages',{
-        templateUrl: '../partials/messages.html'
+        templateUrl: '../partials/messages.html',
+        controller: "alumniController"
     })
     .when('/dashboard/alumni',{
         templateUrl: '../partials/alumni.html',
@@ -58,14 +60,16 @@ alumniApp.config(function ($routeProvider) {
        controller: "jobController"
     })
     .when('/dashboard/events',{
-        templateUrl: '../partials/events.html'
+        templateUrl: '../partials/events.html',
+        controller: "eventController"
     })
     .when('/dashboard/events/new', {
        templateUrl: "../partials/addeventtest.html",
        controller: "eventController"
     })
     .when('/dashboard/about-us',{
-        templateUrl: '../partials/about_us.html'
+        templateUrl: '../partials/about_us.html',
+        controller: "profileController"
     })
     .otherwise({
       redirectTo: '/'

@@ -14,26 +14,13 @@ module.exports = function(app, passport) {
 		user.find(req, res);
 	});
 
-	// app.post('/login', function(req, res){
-	// 	user.find(req,res);
-	// });
-
-	// app.get('/login', function(req,res){
-
-	// 	user.create(req,res);
-
-	// })
-
-	// app.get('/profile', function(req, res) {
-	//   user.findID(req, res);
-	// });
-
-	// app.get('/profile', function(req, res) {
-	//   user.update(req, res);
-	// });
-
 	app.post('/user', function(req, res) {
 	  user.create(req, res);
+	});
+
+	app.post('/userUpdate', function(req, res) {
+		console.log(req.params.id)
+	  user.userUpdate(req, res);
 	});
 
 	app.get('/user', function(req, res) {
@@ -46,25 +33,6 @@ module.exports = function(app, passport) {
 
 	});
 
-	// app.get('/event', function(req, res) {
-	//   event.findID(req, res);
-	// });
-
-	app.get('/event', function(req, res) {
-
-	  events.findID(req, res);
-
-	});
-
-	app.post('/event', function(req, res){
-      events.create(req, res);
-    });
-
-  	app.post('/remove', function(req,res){
-
-		events.remove(req,res);
-	});
-
 	app.get('/jobdetail/:id' , function(req, res) {
 		console.log(req.params.id)
 	  job.findId(req, res);
@@ -75,12 +43,9 @@ module.exports = function(app, passport) {
 
 	});
 
-
-
 	app.post('/job', function(req, res){
     job.create(req, res);
    });
-
 
 	app.get('/stacks', function(req, res) {
 	  job.findStack(req, res);
@@ -97,31 +62,12 @@ module.exports = function(app, passport) {
 
 	});
 
-
-
-    
-
     app.post('/remove', function(req,res){
 
 		job.remove(req,res);
 	});
 //_________ Login Reg Routes Below this line__________
-	// app.get('/signup', function(req, res) {
-	// 	res.render('signup.ejs', { message: req.flash('signupMessage') });
-	// });
 
-	// app.post('/signup', function(req, res, next) {
-	//   console.log('_did a SIGNUP route_', req.body);
-	//   passport.authenticate('local-signup', function(err, user, info) {
-	//     if (err) {
-	//       return res.status(401).json(info); 
-	//     }
-	//     if (!user) {
-	//       return res.status(401).json(info);
-	//     } 
-	//     return res.json(info);
-	//   })(req, res, next);
-	// });
 
 	app.post('/signup', passport.authenticate('local-signup', {
 		successRedirect: '/profile',
@@ -134,20 +80,6 @@ module.exports = function(app, passport) {
 		failureRedirect: '/login',
 		failureFlash: true
 	}));
-	// app.post('/login', function(req, res, next) {
-	//   passport.authenticate('local-login', function(err, user, info) {
-	//     if (err) {
-	//       return res.status(401).json(info); 
-	//     }
-	//     if (!user) {
-	//       return res.status(401).json(info);
-	//     }
-	//     req.logIn(user, function(loginErr) {
-	//       if (loginErr) { return next(loginErr); }
-	//       return res.json(user);
-	//     });    
-	//   })(req, res, next);
-	// });
 
 	app.get('/profile', isLoggedIn, function(req, res){
 

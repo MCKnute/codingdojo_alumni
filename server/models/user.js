@@ -23,6 +23,7 @@ var UserSchema = new mongoose.Schema({
   github: String,
   beltComplete: {},
   status: String,
+  user_id: String,
 
   posts: [{type: Schema.ObjectId, ref:'Post'}],
 
