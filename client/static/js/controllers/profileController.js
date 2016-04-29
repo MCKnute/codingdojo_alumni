@@ -4,13 +4,11 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
   $scope.stacks = [];
   $scope.locations = [];
 
-
   function getUsers(){
-
-      userFactory.getUsers(function(data){
-          // console.log(data, "this is coming from my factory var controller");
-          $scope.users = data;  
-        })
+    userFactory.getUsers(function(data){
+        // console.log(data, "this is coming from my factory var controller");
+        $scope.users = data;
+    })
   }
   getUsers();
 

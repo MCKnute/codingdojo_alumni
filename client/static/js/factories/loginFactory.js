@@ -7,7 +7,7 @@ alumniApp.factory('loginFactory', function($http, $location) {
 //a method to get the user if there is one!
   factory.getUser = function(callback){
       if(currentUser){
-        console.log('__loginFactory, getUser __ this is the currentUser: ');
+        console.log('__loginFactory, getUser __ this is the currentUser: ', currentUser);
         callback(currentUser);
       }
       else{
@@ -24,16 +24,6 @@ alumniApp.factory('loginFactory', function($http, $location) {
       console.log( "This is the current user: ",currentUser);
       successHandler(res);
     }, failHandler);
-  }
-
-  factory.getId = function(callback){
-      $http.get('/userId').then(function(output){
-          
-          userId = output.data;
-          console.log(userId);
-          return
-          callback(userId);
-      })
   }
 
   factory.register = function(data, successHandler, failHandler) {

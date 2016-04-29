@@ -14,12 +14,16 @@ module.exports = function(app, passport) {
 		user.find(req, res);
 	});
 
+	app.get('/userId', function(req,res){
+		user.findId(req,res);
+	});
+
 	app.post('/user', function(req, res) {
 	  user.create(req, res);
 	});
 
 	app.post('/userUpdate', function(req, res) {
-		console.log("__in routes... post/userUpdates, this is req.params._id: ",req.body._id);
+		console.log("__in routes... post/userUpdates, this is req.body._id: ",req.body._id);
 	  user.userUpdate(req, res);
 	});
 

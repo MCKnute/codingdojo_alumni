@@ -33,7 +33,7 @@ alumniApp.factory('userFactory', function($http) {
       $http.get('/stacks').then(function(output){
           
           stacks = output.data;
-          console.log(jobs);
+          // console.log(jobs);
           callback(stacks);
       })
   }
@@ -51,7 +51,7 @@ alumniApp.factory('userFactory', function($http) {
       $http.get('/status').then(function(output){
           
           stacks = output.data;
-          console.log(jobs);
+          // console.log(jobs);
           callback(stacks);
       })
   }
@@ -68,19 +68,20 @@ alumniApp.factory('userFactory', function($http) {
   factory.updateUser = function(data, callback) {
       console.log("____userFactory___ this is the data: ",data);
       $http.post('/userUpdate', data).then(function(response){
+          currentUser = response.data;
         // var update = response.data;
-          console.log("_____goign to post now____", response);
-        callback();
+          console.log("_____goign to post now____", currentUser);
+        callback(currentUser);
       });
   }
 
   factory.getUsersDetail = function(id,callback){
-    console.log("____userFactory function getUsersDetail___ ... this is the id: ",id);
+    // console.log("____userFactory function getUsersDetail___ ... this is the id: ",id);
       $http.get('/userdetail/' + id).then(function(output){
           
           users = output.data;
 
-          console.log("___ userFactory function getUsersDetail___ ... users: ", users);
+          // console.log("___ userFactory function getUsersDetail___ ... users: ", users);
           callback(users);
       })
   } 
