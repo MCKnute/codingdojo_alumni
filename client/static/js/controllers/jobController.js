@@ -55,12 +55,14 @@ alumniApp.controller('jobController', function(jobFactory, $scope, $location, $r
   // console.log(id, "coming from the controller")
 
   function getJobsDetail(inputId){
-
+      console.log('job id is ' + id);
       jobFactory.getJobsDetail(inputId, function(data){
           console.log(data, "from Factory, back into Controller");
           $scope.jobs = data; // $scope.users makes 'users' object available to be used in the html with ng-repeat. This also gets updated anytime a new user is added.
         })
 
   }
+  if($routeParams.id != undefined){
   getJobsDetail(id);
+}
 });

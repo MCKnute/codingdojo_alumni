@@ -29,7 +29,7 @@ return {
      findId: function(req, res) {
       //need to add user id to this so we can add personal messaging  before searching for job detail. 
 
-      console.log(req.params.id, "this is in server side controller")
+      console.log(req.params.id, "jobs controller server side")
 
        Job.findOne({_id: req.params.id}, function(err, job){
         if(err){ 
