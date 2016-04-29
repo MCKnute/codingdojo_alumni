@@ -7,11 +7,32 @@
 
 
       <div class="container">
-        <h1 class="text-center">Messages</h1>
-          <p>View Messages Belwo</p>
+        <h1 class="text-center">Message Center</h1>
+        <p class="text-center">Feature is under construction. Please email your fellow alumni in the meantime.</p>
       <div class="row">
-    
+
+        <input type="text" ng-model='filter_name' placeholder="Filter by name, job, summary, and more" class="input-lg col-md-6 col-md-offset-3 col-xs-12">
+
+        <div class="col-md-8 col-md-offset-2">
+
+        <table class="table table-hover" id="layout" >
+        
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="user in users | filter: filter_name">
+              <td><a href="#/dashboard/alumni/detail/{{user._id}}">{{ user.firstName }} {{ user.lastName }}</a></td>
+              <td>{{ user.email }}</td>
+
+            </tr>
+          </tbody>
+       </table>
       </div>
+    </div>
 
 <!-- ////////////////////EDIT ABOVE THIS LINE //////////////////////////////-->
 
