@@ -2,6 +2,7 @@ alumniApp.factory('loginFactory', function($http, $location) {
   // console.log('in login fac');
   var factory = {};
   var currentUser = null;
+  var userId;
 
 //a method to get the user if there is one!
   factory.getUser = function(callback){

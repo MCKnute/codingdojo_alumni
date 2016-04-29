@@ -39,13 +39,13 @@ alumniApp.controller('jobController', function(jobFactory, $scope, $location, $r
 
   $scope.addJob = function(newJob){
 
-    newJob.user_id = $scope.currentUser._id
+    // newJob.user_id = $scope.currentUser._id
 
     // console.log(newJob);
 
     jobFactory.createJob(newJob,function(){ 
       $scope.newJob = {};    // sets input fields to clear.
-       $locatidon.path('#/dashboard/jobs');
+       $location.path('/dashboard/jobs');
       getJobs();              
     });
   }

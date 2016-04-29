@@ -1,5 +1,6 @@
 alumniApp.factory('eventFactory', function($http) {
   var factory = {};
+  var events;
 
   factory.getEvents = function(callback){
       $http.get('/event').then(function(output){
