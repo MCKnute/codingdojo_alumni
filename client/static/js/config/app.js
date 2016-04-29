@@ -18,7 +18,8 @@ alumniApp.config(function ($routeProvider) {
         controller: "signupController"
     })
     .when('/dashboard',{
-        templateUrl: '../partials/dashboard.html'
+        templateUrl: '../partials/dashboard.html',
+        controller: "profileController"
     })
 
     .when('/dashboard/my-profile',{

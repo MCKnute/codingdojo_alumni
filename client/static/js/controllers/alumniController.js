@@ -12,6 +12,16 @@ alumniApp.controller('alumniController', function(jobFactory, userFactory, $scop
 
   }
   getJobs();
+// ______ currentUser _______//
+  function getCurrentUser(){
+    loginFactory.getUser(function(data){
+      $scope.currentUser = data;
+      // console.log($scope.currentUser)
+    })
+  }
+
+  getCurrentUser();
+// ______ END currentUser _______//
 
   function getUsers(){
 
