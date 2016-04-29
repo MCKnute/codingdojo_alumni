@@ -59,6 +59,7 @@ alumniApp.controller('alumniController', function(jobFactory, loginFactory, user
     var rpId = $routeParams.id;
 
   function getUsersDetail(inputId){
+    console.log(inputId);
     console.log("___coming from the alumni controller__", rpId);
 
     userFactory.getUsersDetail(inputId, function(data){
@@ -67,5 +68,7 @@ alumniApp.controller('alumniController', function(jobFactory, loginFactory, user
         })
 
   }
+  if($routeParams.id != undefined){
   getUsersDetail(rpId);
+}
 });

@@ -51,12 +51,14 @@ alumniApp.controller('messagePrelimController', function(jobFactory, userFactory
     // console.log(id, "coming from the controller")
 
     function getUsersDetail(inputId){
-
+      console.log('is the id defined? : ' + id);
     userFactory.getUsersDetail(inputId, function(data){
           // console.log(data, "from Factory, back into Controller");
           $scope.users = data; // $scope.users makes 'users' object available to be used in the html with ng-repeat. This also gets updated anytime a new user is added.
         })
 
   }
+  if($routeParams.id != undefined){
   getUsersDetail(id);
+}
 });
