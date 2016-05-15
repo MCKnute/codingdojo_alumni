@@ -6,14 +6,7 @@ var UserSchema = new mongoose.Schema({
   firstName: String,
   lastName: String,
   email: String,
-  // 	type: String,
-  // 	unique: true,
-  // 	required: true
-  // },
   password: String,
-  // 	type: String,
-  // 	required: true
-  // },
   currentJob: String,
   primaryLocation: String,
   primaryStack: String,
