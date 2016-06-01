@@ -14,9 +14,9 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
 
   function getCurrentUser(){
     loginFactory.getUser(function(data){
-      console.log("__profileController, getCurrentUser__ data: ",data);
+      // console.log("__profileController, getCurrentUser__ data: ",data);
       $scope.currentUser = data;
-      console.log("__profileController, getCurrentUser__ $scope.currentUser: ", $scope.currentUser);
+      // console.log("__profileController, getCurrentUser__ $scope.currentUser: ", $scope.currentUser);
     })
   }
 

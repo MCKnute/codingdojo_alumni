@@ -19,7 +19,7 @@ alumniApp.controller('signupController', function(userFactory, loginFactory, job
       // console.log('rich test');
     $scope.flash = {};
     loginFactory.login(data, function(res){
-      console.log('__bout to go to your dashboard__',res);
+      // console.log('__bout to go to your dashboard__',res);
 
       // app.js routeProvider
       $location.path('/dashboard');
@@ -34,7 +34,7 @@ alumniApp.controller('signupController', function(userFactory, loginFactory, job
   $scope.newUser = {};
   $scope.stacks = [];
   $scope.locations = [];
-  console.log($scope.login);
+  // console.log($scope.login);
 
 
   function getCurrentUser(){
@@ -45,7 +45,7 @@ alumniApp.controller('signupController', function(userFactory, loginFactory, job
   }
 
   // getCurrentUser();
-  console.log($scope.currentUser);
+  // console.log($scope.currentUser);
 
   function getUsers(){
     userFactory.getUsers(function(data){
