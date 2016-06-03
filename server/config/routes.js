@@ -23,7 +23,7 @@ module.exports = function(app, passport) {
 	});
 
 	app.post('/userUpdate', function(req, res) {
-		console.log("__in routes... post/userUpdates, this is req.body._id: ",req.body._id);
+	  console.log("||__in routes... post/userUpdates, this is req.body._id: ",req.body._id);
 	  user.userUpdate(req, res);
 	});
 
@@ -87,13 +87,13 @@ module.exports = function(app, passport) {
 
 	app.get('/profile', isLoggedIn, function(req, res){
 
-		console.log("routes/ app.get(/profile)... system... hehe. You requested req.user._id: ", req.user._id);
+		console.log("||__routes/ app.get(/profile) You requested req.user._id: ", req.user._id);
 
   		User.findOne({_id: req.user._id}).exec(function(err, user){
       		if(err) {
       			console.log(err);
       		}
-      		console.log("This is the current User: ", user);
+      		console.log("||__This is the current User: ", user);
       		res.json(user);
  		});
 	});

@@ -12,7 +12,7 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
   }
   getUsers();
 
-  function getCurrentUser(){
+  function getCurrentUser(data){
     loginFactory.getUser(function(data){
       // console.log("__profileController, getCurrentUser__ data: ",data);
       $scope.currentUser = data;
@@ -36,9 +36,9 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
   function getStacks(){
 
       jobFactory.getStacks(function(data){
-          console.log(data, "this is coming from my factory var customers, it's my hard coded object");
+          // console.log(data, "this is coming from my factory var customers, it's my hard coded object");
           $scope.stacks = data; 
-          console.log($scope.stacks[0].name)
+          // console.log($scope.stacks[0].name)
           $scope.changeUser.primaryStack = $scope.stacks[0].name
          
         })
@@ -50,8 +50,8 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
 
     userFactory.getLocations(function(data){
         $scope.locations = data; 
-        console.log($scope.locations);
-        console.log($scope.locations[0].name);
+        // console.log($scope.locations);
+        // console.log($scope.locations[0].name);
 
         $scope.changeUser.primaryLocation = $scope.locations[0].name
       })
@@ -69,13 +69,15 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
       }
 
   $scope.updateUser = function(changeUser){
+    console.log("||__profileController, changeUser: ", changeUser);
     changeUser._id = $scope.currentUser._id;
-      console.log("_ profileController, updating user now_", changeUser._id);
-       // this is from data getting passed through from HTML View
-        userFactory.updateUser(changeUser,function(){
-          $scope.changeUser = {};    // sets input fields to clear.
-          $location.path('/dashboard/my-profile');
-          getUsers();
-        })
-      }
+    console.log("||__profileController, updating user now__", changeUser._id);
+   // this is from data getting passed through from HTML View
+    userFactory.updateUser(changeUser,function(data){
+      $scope.changeUser = {};   // sets input fields to clear.
+      $scope.changeUser = data;
+      $location.path('/dashboard/my-profile');
+      getCurrentUser(data);
+    })
+  }
 });

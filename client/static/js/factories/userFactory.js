@@ -6,14 +6,9 @@ alumniApp.factory('userFactory', function($http) {
   var stacks;
   var update;
   var locations;
-  // {
-  //   firstName = "Mike",
-  //   lastName = "Bogosian"
-  // }
 
   factory.getJobs = function(callback){
       $http.get('/profile').then(function(output){
-          
           jobs = output.data;
           // console.log(jobs);
           callback(jobs);
@@ -22,7 +17,6 @@ alumniApp.factory('userFactory', function($http) {
 
   factory.getUsers = function(callback){
       $http.get('/user').then(function(output){
-          
           users = output.data;
           // console.log(users);
           callback(users);
@@ -31,7 +25,6 @@ alumniApp.factory('userFactory', function($http) {
 
    factory.getStacks = function(callback){
       $http.get('/stacks').then(function(output){
-          
           stacks = output.data;
           // console.log(jobs);
           callback(stacks);
@@ -40,7 +33,6 @@ alumniApp.factory('userFactory', function($http) {
 
   factory.getLocations = function(callback){
       $http.get('/locations').then(function(output){
-          
           locations = output.data;
           // console.log(locations);
           callback(locations);
@@ -49,7 +41,6 @@ alumniApp.factory('userFactory', function($http) {
 
   factory.getJobStatus = function(callback){
       $http.get('/status').then(function(output){
-          
           stacks = output.data;
           // console.log(jobs);
           callback(stacks);
@@ -59,18 +50,15 @@ alumniApp.factory('userFactory', function($http) {
   factory.createUser = function(data, callback) {
       // console.log(data);
       $http.post('/user', data).then(function(response){
-          
-
         callback();
       })
   }
 
   factory.updateUser = function(data, callback) {
-      console.log("____userFactory___ this is the data: ",data);
+      console.log("____userFactory___ this is the data: ", data);
       $http.post('/userUpdate', data).then(function(response){
-          currentUser = response.data;
-        // var update = response.data;
-          console.log("_____goign to post now____", currentUser);
+        currentUser = response.data;
+        console.log("_____goign to post now____", currentUser);
         callback(currentUser);
       });
   }
@@ -78,9 +66,7 @@ alumniApp.factory('userFactory', function($http) {
   factory.getUsersDetail = function(id,callback){
     // console.log("____userFactory function getUsersDetail___ ... this is the id: ",id);
       $http.get('/userdetail/' + id).then(function(output){
-          
           users = output.data;
-
           // console.log("___ userFactory function getUsersDetail___ ... users: ", users);
           callback(users);
       })
