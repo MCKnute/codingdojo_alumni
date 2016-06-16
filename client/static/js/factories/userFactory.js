@@ -54,14 +54,14 @@ alumniApp.factory('userFactory', function($http) {
       })
   }
 
-  factory.updateUser = function(data, callback) {
-      console.log("____userFactory___ this is the data: ", data);
-      $http.post('/userUpdate', data).then(function(response){
-        currentUser = response.data;
-        console.log("_____goign to post now____", currentUser);
-        callback(currentUser);
-      });
-  }
+  // factory.updateUser = function(data, callback) {
+  //     console.log("____userFactory___ this is the data: ", data);
+  //     $http.post('/userUpdate', data).then(function(response){
+  //       currentUser = response.data;
+  //       console.log("_____goign to post now____", currentUser);
+  //       callback(currentUser);
+  //     });
+  // }
 
   factory.getUsersDetail = function(id,callback){
     // console.log("____userFactory function getUsersDetail___ ... this is the id: ",id);

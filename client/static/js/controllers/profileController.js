@@ -47,14 +47,12 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
   // getStacks();
 
   function getLocations(){
-
     userFactory.getLocations(function(data){
         $scope.locations = data; 
         // console.log($scope.locations);
         // console.log($scope.locations[0].name);
-
         $scope.changeUser.primaryLocation = $scope.locations[0].name
-      })
+    })
   }
   // getLocations();
 
@@ -73,7 +71,7 @@ alumniApp.controller('profileController', function(userFactory, loginFactory, jo
     changeUser._id = $scope.currentUser._id;
     console.log("||__profileController, updating user now__", changeUser._id);
    // this is from data getting passed through from HTML View
-    userFactory.updateUser(changeUser,function(data){
+    loginFactory.updateUser(changeUser,function(data){
       $scope.changeUser = {};   // sets input fields to clear.
       $scope.changeUser = data;
       $location.path('/dashboard/my-profile');

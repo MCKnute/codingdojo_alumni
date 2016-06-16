@@ -30,5 +30,14 @@ alumniApp.factory('loginFactory', function($http, $location) {
     $http.post('/signup', data).then(successHandler, failHandler);
   }
 
+  factory.updateUser = function(data, callback) {
+    console.log("____userFactory___ this is the data: ", data);
+    $http.post('/userUpdate', data).then(function(response){
+      currentUser = response.data;
+      console.log("_____goign to post now____", currentUser);
+      callback(currentUser);
+    });
+  }
+
   return factory;
 });

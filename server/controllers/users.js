@@ -24,7 +24,7 @@ module.exports = (function() {
     },
     userUpdate: function(req, res) {
       console.log("____users.js function userUpdates___", req.body);
-      User.findOneAndUpdate({_id: req.body._id}, {$set: req.body}, function(err, user){
+      User.findOneAndUpdate({_id: req.body._id}, {$set: req.body}, {new:true}, function(err, user){
         if(err){ 
           console.log("this didn't find anybody", err);
         } else {
